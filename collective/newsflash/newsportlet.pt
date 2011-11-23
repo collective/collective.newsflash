@@ -3,17 +3,19 @@
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        Header
+        Newsflash
         <span class="portletTopRight"></span>
     </dt>
 
     <dd class="portletItem odd">
-        Body text
+        <a href="@@add-newsflash">
+            <span>Add newsflash</span>
+        </a>
     </dd>
 
     <dd class="portletFooter">
         <span class="portletBottomLeft"></span>
-        Footer
+        <!-- Footer -->
         <span class="portletBottomRight"></span>
     </dd>
 

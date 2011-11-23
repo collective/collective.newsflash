@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.newsflash.newsflash">
+
+    <include package="plone.app.z3cform" />
+
+    <browser:page
+        for="*"
+        name="add-newsflash"
+        class=".newsflash.NewsFlashEdit"
+        permission="zope2.View"
+        />
+
+</configure>

@@ -5,7 +5,7 @@
 
  <portlet
    addview="collective.newsflash.newsflash.NewsPortlet"
-   title="collective.newsflash"
+   title="Newsflash Portlet"
    description=""
    />
 
