@@ -28,11 +28,17 @@ class NewsFlashEditForm(form.Form):
         # call the base class version - this is very important!
         super(NewsFlashEditForm, self).update()
 
+    def render(self):
+        if not self.request.form.get('form.buttons.save', False):
+            return super(NewsFlashEditForm, self).render()
+        else:
+            return None
 
     @button.buttonAndHandler(_(u'Save'))
     def handleApply(self, action):
         data, errors = self.extractData()
         annotations = IAnnotations(self.context)
         annotations['collective.newsflash.newsflash'] = data['newsflash']
+        return None
 
 NewsFlashEdit = wrap_form(NewsFlashEditForm)
