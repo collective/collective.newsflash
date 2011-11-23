@@ -1,15 +1,15 @@
 <dl class="portlet portletNewsPortlet"
-    i18n:domain="collective.newsflash.newsflash">
+    i18n:domain="collective.newsflash">
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        Newsflash
+        <span i18n:translate="">Newsflash</span>
         <span class="portletTopRight"></span>
     </dt>
 
     <dd class="portletItem odd">
         <a href="@@add-newsflash">
-            <span>Add newsflash</span>
+            <span i18n:translate="">Add newsflash</span>
         </a>
     </dd>
 

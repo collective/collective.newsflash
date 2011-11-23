@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
-<portlets>
+<portlets
+   i18n:domain="plone">
 
  <!-- Portlet type registrations -->
 
  <portlet
-   addview="collective.newsflash.newsflash.NewsPortlet"
+   addview="collective.newsflash.newsportlet.NewsPortlet"
    title="Newsflash Portlet"
    description=""
+   i18n:attributes="title"
    />
 
 </portlets>

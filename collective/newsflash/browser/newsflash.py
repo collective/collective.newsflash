@@ -9,16 +9,17 @@ from plone.z3cform.layout import wrap_form
 
 from zope.annotation.interfaces import IAnnotations
 
+from collective.newsflash import _
 
 class INewsFlash(interface.Interface):
-    newsflash = schema.List(value_type = schema.Text(title=u'Newsflash',
+    newsflash = schema.List(value_type = schema.Text(title=_(u'Newsflash'),
                                                  default=u''),
                             default=[] )
 
 class NewsFlashEditForm(form.Form):
     fields = field.Fields(INewsFlash)
     ignoreContext = True # don't use context to get widget data
-    label = "Add Newsflash"
+    label = _("Add Newsflash")
 
     def update(self):
         annotations = IAnnotations(self.context)
@@ -28,7 +29,7 @@ class NewsFlashEditForm(form.Form):
         super(NewsFlashEditForm, self).update()
 
 
-    @button.buttonAndHandler(u'Ok')
+    @button.buttonAndHandler(_(u'Save'))
     def handleApply(self, action):
         data, errors = self.extractData()
         annotations = IAnnotations(self.context)
