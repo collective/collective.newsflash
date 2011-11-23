@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from zope.app.component.hooks import getSite
+
 from zope import interface
 from zope import schema
 from z3c.form import form
@@ -22,7 +24,8 @@ class NewsFlashEditForm(form.Form):
     label = _("Add Newsflash")
 
     def update(self):
-        annotations = IAnnotations(self.context)
+        portal = getSite()
+        annotations = IAnnotations(portal)
         field = self.fields['newsflash'].field
         field.default = annotations.get('collective.newsflash.newsflash', [])
         # call the base class version - this is very important!
@@ -36,8 +39,9 @@ class NewsFlashEditForm(form.Form):
 
     @button.buttonAndHandler(_(u'Save'))
     def handleApply(self, action):
+        portal = getSite()
         data, errors = self.extractData()
-        annotations = IAnnotations(self.context)
+        annotations = IAnnotations(portal)
         annotations['collective.newsflash.newsflash'] = data['newsflash']
         return None
 
