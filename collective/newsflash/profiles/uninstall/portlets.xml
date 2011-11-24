@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="collective.newsflash.newsportlet.NewsPortlet"
+   title="Newsflash Portlet"
+   description=""
+   remove="True"/>
+
+</portlets>

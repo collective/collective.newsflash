@@ -21,6 +21,14 @@
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.newsflash uninstall"
+        directory="profiles/uninstall"
+        description="Uninstall profile for the collective.newsflash package."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
     <browser:page
         name="newsflash-settings"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
