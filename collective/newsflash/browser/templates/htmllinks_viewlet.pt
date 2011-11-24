@@ -1,0 +1,6 @@
+<tal:defs define="portal_url context/@@plone_portal_state/portal_url">
+<link rel="stylesheet" type="text/css" media="screen" href=""
+      tal:attributes="href string:${portal_url}/++resource++collective.newsflash.style/newsflash-style.css" />
+<script type="text/javascript" src="newsflash.js"
+    tal:attributes="src string:${portal_url}/newsflash.js"></script>
+</tal:defs>

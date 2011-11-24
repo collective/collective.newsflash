@@ -1,0 +1,4 @@
+jq(document).ready(function() {
+        <tal:define content="string:var config_data = ${context/newsflash_api}" />
+        jq("#js-news").newsflash(config_data);
+        });

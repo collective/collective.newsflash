@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="collective.newsflash"
+   purge="False">
+ <configlet title="News Flash Settings"
+    action_id="newsflash"
+    appId="collective.newsflash"
+    category="Products"
+    condition_expr=""
+    url_expr="string:${portal_url}/@@newsflash-settings"
+    icon_expr="string:${portal_url}/++resource++collective.newsflash.style/newsflash_icon.png"
+    visible="True"
+    i18n:attributes="title">
+  <permission>Manage portal</permission>
+ </configlet>
+</object>

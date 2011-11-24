@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.newsflash.newsflash">
+
+     <!-- Register the portlet -->
+
+     <!-- If the portlet has no configurable parameters, you can remove
+          the EditForm declaration in newsportlet.py and delete
+          the 'editview' attribute from this statement.
+       -->
+
+     <plone:portlet
+         name="collective.newsflash.newsportlet.NewsPortlet"
+         interface=".newsportlet.INewsPortlet"
+         assignment=".newsportlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".newsportlet.Renderer"
+         addview=".newsportlet.AddForm"
+         editview=".newsportlet.EditForm"
+         />
+        
+</configure>
