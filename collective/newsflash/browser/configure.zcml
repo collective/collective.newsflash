@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.newsflash.newsflash">
 
     <include package="plone.app.z3cform" />
@@ -10,10 +11,16 @@
       directory="javascript"
       />
 
+    <browser:resourceDirectory
+      name="collective.newsflash.style"
+      directory="style"
+      />
+      
+  <grok:grok package=".newsflash_viewlet" />
 
     <browser:page
         for="*"
-        name="add-newsflash"
+        name="manage-newsflashes"
         class=".newsflash.NewsFlashEdit"
         permission="zope2.View"
         />

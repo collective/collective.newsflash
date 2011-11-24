@@ -1,9 +1,9 @@
 window.onload = function() {
-    $('a#add-newsflash').prepOverlay(
+    $('a#manage-newsflashes').prepOverlay(
         {
             subtype: 'ajax',
             formselector: '#form',
-            noform: 'close'
+            noform: 'reload'
         }
     );
 }

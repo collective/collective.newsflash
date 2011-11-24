@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.newsflash.newsflash">
 
@@ -11,6 +11,7 @@
     <i18n:registerTranslations directory="locales" />
     
     <include package=".browser" />
+    <include package=".portlet" />
 
     <genericsetup:registerProfile
        name="default"
@@ -20,22 +21,11 @@
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
-     <!-- Register the portlet -->
-
-     <!-- If the portlet has no configurable parameters, you can remove
-          the EditForm declaration in newsportlet.py and delete
-          the 'editview' attribute from this statement.
-       -->
-
-     <plone:portlet
-         name="collective.newsflash.newsportlet.NewsPortlet"
-         interface=".newsportlet.INewsPortlet"
-         assignment=".newsportlet.Assignment"
-         view_permission="zope2.View"
-         edit_permission="cmf.ManagePortal"
-         renderer=".newsportlet.Renderer"
-         addview=".newsportlet.AddForm"
-         editview=".newsportlet.EditForm"
-         />
-
+    <browser:page
+        name="newsflash-settings"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.NewsFlashConfiglet"
+        permission="cmf.ManagePortal"
+        />
+        
 </configure>

@@ -21,7 +21,7 @@ class INewsFlash(interface.Interface):
 class NewsFlashEditForm(form.Form):
     fields = field.Fields(INewsFlash)
     ignoreContext = True # don't use context to get widget data
-    label = _("Add Newsflash")
+    label = _("Manage Newsflashes")
 
     def update(self):
         portal = getSite()
@@ -42,7 +42,10 @@ class NewsFlashEditForm(form.Form):
         portal = getSite()
         data, errors = self.extractData()
         annotations = IAnnotations(portal)
-        annotations['collective.newsflash.newsflash'] = data['newsflash']
+        if 'newsflash' in data:
+            annotations['collective.newsflash.newsflash'] = data['newsflash']
+        else:
+            annotations['collective.newsflash.newsflash'] = []
         return None
 
 NewsFlashEdit = wrap_form(NewsFlashEditForm)
