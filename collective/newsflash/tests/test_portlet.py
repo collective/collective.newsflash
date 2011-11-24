@@ -1,3 +1,7 @@
+import unittest2 as unittest
+
+from collective.newsflash.testing import INTEGRATION_TESTING
+
 from zope.component import getUtility, getMultiAdapter
 
 from plone.portlets.interfaces import IPortletType
@@ -8,14 +12,13 @@ from plone.portlets.interfaces import IPortletRenderer
 
 from plone.app.portlets.storage import PortletAssignmentMapping
 
-from collective.newsflash.newsflash import newsportlet
+from collective.newsflash.portlet import newsportlet
 
-from collective.newsflash.newsflash.tests.base import TestCase
+class PortletTest(unittest.TestCase):
 
+    layer = INTEGRATION_TESTING
 
-class TestPortlet(TestCase):
-
-    def afterSetUp(self):
+    def setUp(self):
         self.setRoles(('Manager', ))
 
     def test_portlet_type_registered(self):
@@ -75,9 +78,12 @@ class TestPortlet(TestCase):
         self.failUnless(isinstance(renderer, newsportlet.Renderer))
 
 
-class TestRenderer(TestCase):
 
-    def afterSetUp(self):
+class RenderTest(unittest.TestCase):
+
+    layer = INTEGRATION_TESTING
+
+    def setUp(self):
         self.setRoles(('Manager', ))
 
     def renderer(self, context=None, request=None, view=None, manager=None,
@@ -105,8 +111,4 @@ class TestRenderer(TestCase):
 
 
 def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestPortlet))
-    suite.addTest(makeSuite(TestRenderer))
-    return suite
+    return unittest.defaultTestLoader.loadTestsFromName(__name__)

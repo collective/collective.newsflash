@@ -26,8 +26,12 @@ setup(name='collective.newsflash',
       install_requires=[
           'setuptools',
           'plone.app.z3cform',
+          'five.grok',
           # -*- Extra requirements: -*-
       ],
+      extras_require={
+        'test': ['plone.app.testing'],
+        },
       entry_points="""
       # -*- Entry points: -*-
 
