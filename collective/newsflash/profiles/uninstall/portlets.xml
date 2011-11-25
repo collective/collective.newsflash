@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 <portlets>
-
- <!-- Portlet type registrations -->
-
- <portlet
-   addview="collective.newsflash.newsportlet.NewsPortlet"
-   title="Newsflash Portlet"
-   description=""
-   remove="True"/>
-
+ <assignment
+    remove="True"
+    manager="plone.leftcolumn"
+    category="context"
+    key="/"
+    type="collective.newsflash.newsportlet.NewsPortlet"
+    name="newsflash"
+    />
 </portlets>
