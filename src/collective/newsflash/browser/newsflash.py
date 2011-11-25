@@ -15,8 +15,8 @@ from collective.newsflash import _
 
 class INewsFlash(interface.Interface):
     newsflash = schema.List(value_type = schema.Text(title=_(u'Newsflash'),
-                                                 default=u''),
-                            default=[] )
+                                                     default=u''),
+                            default=[])
 
 class NewsFlashEditForm(form.Form):
     fields = field.Fields(INewsFlash)
@@ -32,15 +32,22 @@ class NewsFlashEditForm(form.Form):
         super(NewsFlashEditForm, self).update()
 
     def render(self):
-        if not self.request.form.get('form.buttons.save', False):
-            return super(NewsFlashEditForm, self).render()
+        submitted = self.request.form.get('form.buttons.save', False)
+        if submitted:
+            data, errors = self.extractData()
+            if errors:
+                return super(NewsFlashEditForm, self).render()
+            else:
+                return None
         else:
-            return None
+            return super(NewsFlashEditForm, self).render()
 
     @button.buttonAndHandler(_(u'Save'))
     def handleApply(self, action):
         portal = getSite()
         data, errors = self.extractData()
+        if errors:
+            return
         annotations = IAnnotations(portal)
         if 'newsflash' in data:
             annotations['collective.newsflash.newsflash'] = data['newsflash']
