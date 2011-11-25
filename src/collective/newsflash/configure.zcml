@@ -1,15 +1,15 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.newsflash.newsflash">
 
-    <five:registerPackage package="." initialize=".initialize" />
-
+    <includeDependencies package="." />
+    <grok:grok package="." />
     <i18n:registerTranslations directory="locales" />
-    
+
     <include package=".browser" />
     <include package=".portlet" />
 
@@ -35,5 +35,5 @@
         class=".controlpanel.NewsFlashConfiglet"
         permission="cmf.ManagePortal"
         />
-        
+
 </configure>

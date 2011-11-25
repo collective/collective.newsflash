@@ -30,8 +30,9 @@ setup(name='collective.newsflash',
       zip_safe=False,
       install_requires=[
         'setuptools',
-        'five.grok',
+        'five.grok>=1.2.0',
         'plone.app.z3cform',
+        'zope.schema>=3.8.0',  # required to use IContextAwareDefaultFactory
         ],
       extras_require={
         'test': ['plone.app.testing'],
