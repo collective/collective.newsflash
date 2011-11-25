@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:i18n="http://namespaces.zope.org/i18n"
-    i18n_domain="collective.newsflash.newsflash">
+    i18n_domain="collective.newsflash">
 
      <!-- Register the portlet -->
 
@@ -15,7 +15,7 @@
          name="collective.newsflash.newsportlet.NewsPortlet"
          interface=".newsportlet.INewsPortlet"
          assignment=".newsportlet.Assignment"
-         view_permission="zope2.View"
+         view_permission="cmf.ManagePortal"
          edit_permission="cmf.ManagePortal"
          renderer=".newsportlet.Renderer"
          addview=".newsportlet.AddForm"

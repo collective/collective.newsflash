@@ -1,22 +1,22 @@
 /*
-    jQuery News Flash is free software: you can redistribute it and/or modify
+    jQuery News Ticker is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, version 2 of the License.
  
-    jQuery News Flash is distributed in the hope that it will be useful,
+    jQuery News Ticker is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with jQuery News Flash.  If not, see <http://www.gnu.org/licenses/>.
+    along with jQuery News Ticker.  If not, see <http://www.gnu.org/licenses/>.
 */
 (function($){  
-	$.fn.newsflash = function(options) {
+	$.fn.ticker = function(options) { 
 		// Extend our default options with those provided.
 		// Note that the first arg to extend is an empty object -
 		// this is to keep from overriding our "defaults" object.
-		var opts = $.extend({}, $.fn.newsflash.defaults, options);
+		var opts = $.extend({}, $.fn.ticker.defaults, options); 
 		
 		/* Get the id of the UL to get our news content from */
 		var newsID = '#' + $(this).attr('id');
@@ -35,14 +35,14 @@
 				paused: false,
 				contentLoaded: false,
 				dom: {
-					contentID: '#newsflash-content',
-					titleID: '#newsflash-title',
-					titleElem: '#newsflash-title SPAN',
-					newsflashID : '#newsflash',
-					wrapperID: '#newsflash-wrapper',
-					revealID: '#newsflash-swipe',
-					revealElem: '#newsflash-swipe SPAN',
-					controlsID: '#newsflash-controls',
+					contentID: '#ticker-content',
+					titleID: '#ticker-title',
+					titleElem: '#ticker-title SPAN',
+					tickerID : '#ticker',
+					wrapperID: '#ticker-wrapper',
+					revealID: '#ticker-swipe',
+					revealElem: '#ticker-swipe SPAN',
+					controlsID: '#ticker-controls',
 					prevID: '#prev',
 					nextID: '#next',
 					playPauseID: '#play-pause'
@@ -55,7 +55,7 @@
 				return false;
 			}
 
-			// set the newsflash direction
+			// set the ticker direction
 			opts.direction == 'rtl' ? opts.direction = 'right' : opts.direction = 'left';
 			
 			// lets go...
@@ -83,11 +83,11 @@
 
 			/* Function to setup the page */
 			function initialisePage() {
-				// add our HTML structure for the newsflash to the DOM
-				$(settings.dom.wrapperID).append('<div id="' + settings.dom.newsflashID.replace('#', '') + '"><div id="' + settings.dom.titleID.replace('#', '') + '"><span><!-- --></span></div><p id="' + settings.dom.contentID.replace('#', '') + '"></p><div id="' + settings.dom.revealID.replace('#', '') + '"><span><!-- --></span></div></div>');
+				// add our HTML structure for the ticker to the DOM
+				$(settings.dom.wrapperID).append('<div id="' + settings.dom.tickerID.replace('#', '') + '"><div id="' + settings.dom.titleID.replace('#', '') + '"><span><!-- --></span></div><p id="' + settings.dom.contentID.replace('#', '') + '"></p><div id="' + settings.dom.revealID.replace('#', '') + '"><span><!-- --></span></div></div>');
 				$(settings.dom.wrapperID).removeClass('no-js').addClass('has-js ' + opts.direction);
-				// hide the newsflash
-				$(settings.dom.newsflashElem + ',' + settings.dom.contentID).hide();
+				// hide the ticker
+				$(settings.dom.tickerElem + ',' + settings.dom.contentID).hide();
 				// add the controls to the DOM if required
 				if (opts.controls) {
 					// add related events - set functions to run on given event
@@ -108,16 +108,16 @@
 									manualChangeContent(button);
 									break;
 								case settings.dom.playPauseID.replace('#', ''):
-									// play or pause the newsflash
+									// play or pause the ticker
 									if (settings.play == true) {
 										settings.paused = true;
 										$(settings.dom.playPauseID).addClass('paused');
-										pauseNewsFlash();
+										pauseTicker();
 									}
 									else {
 										settings.paused = false;
 										$(settings.dom.playPauseID).removeClass('paused');
-										restartNewsFlash();
+										restartTicker();
 									}
 									break;
 							}	
@@ -142,19 +142,19 @@
                 		// add mouse over on the content
                 		$(settings.dom.contentID).mouseover(function () {
                 			if (settings.paused == false) {
-                				pauseNewsFlash();
+                				pauseTicker();
                 			}
                 		}).mouseout(function () {
                 			if (settings.paused == false) {
-                				restartNewsFlash();
+                				restartTicker();
                 			}
                 		});
 				}
-				// process the content for this newsflash
+				// process the content for this ticker
 				processContent();
 			}
 
-			/* Start to process the content for this newsflash */
+			/* Start to process the content for this ticker */
 			function processContent() {
 				// check to see if we need to load content
 				if (settings.contentLoaded == false) {
@@ -200,7 +200,7 @@
 									}			
 									// quick check here to see if we actually have any content - log error if not
 									if (countSize(settings.newsArr < 1)) {
-										debugError('Couldn\'t find any content from the XML feed for the newsflash to use!');
+										debugError('Couldn\'t find any content from the XML feed for the ticker to use!');
 										return false;
 									}
 									setupContentAndTriggerDisplay();
@@ -221,12 +221,12 @@
 							setupContentAndTriggerDisplay();
 						}	
 						else {
-							debugError('Couldn\'t find HTML any content for the newsflash to use!');
+							debugError('Couldn\'t find HTML any content for the ticker to use!');
 							return false;
 						}
 					}
 					else {
-						debugError('The newsflash is set to not use any types of content! Check the settings for the newsflash.');
+						debugError('The ticker is set to not use any types of content! Check the settings for the ticker.');
 						return false;
 					}					
 				}			
@@ -236,7 +236,7 @@
 
 				settings.contentLoaded = true;
 
-				// update the newsflash content with the correct item
+				// update the ticker content with the correct item
 				// insert news content into DOM
 				$(settings.dom.titleElem).html(settings.newsArr['item-' + settings.position].type);
 				$(settings.dom.contentID).html(settings.newsArr['item-' + settings.position].content);
@@ -253,7 +253,7 @@
 				distance = $(settings.dom.contentID).width();
 				time = distance / opts.speed;
 
-				// start the newsflash animation
+				// start the ticker animation						
 				revealContent();		
 			}
 
@@ -266,7 +266,7 @@
 					$(settings.dom.revealID).css(opts.direction, offset + 'px');
 					// show the reveal element and start the animation
 					if (opts.displayType == 'fade') {
-						// fade in effect newsflash
+						// fade in effect ticker
 						$(settings.dom.revealID).hide(0, function () {
 							$(settings.dom.contentID).css(opts.direction, offset + 'px').fadeIn(opts.fadeInSpeed, postReveal);
 						});						
@@ -289,20 +289,20 @@
 				}
 			};
 
-			// here we hide the current content and reset the newsflash elements to a default state ready for the next newsflash item
+			// here we hide the current content and reset the ticker elements to a default state ready for the next ticker item
 			function postReveal() {				
 				if(settings.play) {		
 					// we have to separately fade the content out here to get around an IE bug - needs further investigation
 					$(settings.dom.contentID).delay(opts.pauseOnItems).fadeOut(opts.fadeOutSpeed);
-					// deal with the rest of the content, prepare the DOM and trigger the next newsflash
+					// deal with the rest of the content, prepare the DOM and trigger the next ticker
 					if (opts.displayType == 'fade') {
 						$(settings.dom.contentID).fadeOut(opts.fadeOutSpeed, function () {
 							$(settings.dom.wrapperID)
 								.find(settings.dom.revealElem + ',' + settings.dom.contentID)
 									.hide()
-								.end().find(settings.dom.newsflashID + ',' + settings.dom.revealID)
+								.end().find(settings.dom.tickerID + ',' + settings.dom.revealID)
 									.show()
-								.end().find(settings.dom.newsflashID + ',' + settings.dom.revealID)
+								.end().find(settings.dom.tickerID + ',' + settings.dom.revealID)
 									.removeAttr('style');								
 							setupContentAndTriggerDisplay();						
 						});
@@ -313,9 +313,9 @@
 								$(settings.dom.wrapperID)
 									.find(settings.dom.revealElem + ',' + settings.dom.contentID)
 										.hide()
-									.end().find(settings.dom.newsflashID + ',' + settings.dom.revealID)
+									.end().find(settings.dom.tickerID + ',' + settings.dom.revealID)
 										.show()
-									.end().find(settings.dom.newsflashID + ',' + settings.dom.revealID)
+									.end().find(settings.dom.tickerID + ',' + settings.dom.revealID)
 										.removeAttr('style');								
 								setupContentAndTriggerDisplay();						
 							});
@@ -327,28 +327,28 @@
 				}
 			}
 
-			// pause newsflash
-			function pauseNewsFlash() {
+			// pause ticker
+			function pauseTicker() {				
 				settings.play = false;
 				// stop animation and show content - must pass "true, true" to the stop function, or we can get some funky behaviour
-				$(settings.dom.newsflashID + ',' + settings.dom.revealID + ',' + settings.dom.titleID + ',' + settings.dom.titleElem + ',' + settings.dom.revealElem + ',' + settings.dom.contentID).stop(true, true);
+				$(settings.dom.tickerID + ',' + settings.dom.revealID + ',' + settings.dom.titleID + ',' + settings.dom.titleElem + ',' + settings.dom.revealElem + ',' + settings.dom.contentID).stop(true, true);
 				$(settings.dom.revealID + ',' + settings.dom.revealElem).hide();
 				$(settings.dom.wrapperID)
 					.find(settings.dom.titleID + ',' + settings.dom.titleElem).show()
 						.end().find(settings.dom.contentID).show();
 			}
 
-			// play newsflash
-			function restartNewsFlash() {
+			// play ticker
+			function restartTicker() {				
 				settings.play = true;
 				settings.paused = false;
-				// start the newsflash again
+				// start the ticker again
 				postReveal();	
 			}
 
 			// change the content on user input
 			function manualChangeContent(direction) {
-				pauseNewsFlash();
+				pauseTicker();
 				switch (direction) {
 					case 'prev':
 						if (settings.position == 0) {
@@ -380,7 +380,7 @@
 	};  
 
 	// plugin defaults - added as a property on our plugin function
-	$.fn.newsflash.defaults = {
+	$.fn.ticker.defaults = {
 		speed: 0.10,			
 		ajaxFeed: false,
 		feedUrl: '',

@@ -70,10 +70,10 @@ class NewsFlash_API(grok.View):
         return json.dumps(json_var, sort_keys=sort_keys, indent=indent)
 
 
-class NewsFlash_JS(grok.View):
+class NewsFlash_Viewlet_JS(grok.View):
     grok.context(Interface)
     grok.layer(INewsFlashLayer)
-    grok.name('newsflash.js')
+    grok.name('newsflash_viewlet.js')
     grok.require('zope2.View')
 
 

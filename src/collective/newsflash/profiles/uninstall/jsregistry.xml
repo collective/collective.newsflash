@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
- <javascript id="++resource++collective.newsflash.javascript/newsflash.js" purge="True" />
- <javascript id="++resource++collective.newsflash.javascript/jquery.newsflash.js" purge="True"/>  
+ <javascript id="++resource++collective.newsflash.javascript/newsflash.js" remove="true" />
+ <javascript id="++resource++collective.newsflash.javascript/jquery.ticker.js" remove="true"/>
 </object>

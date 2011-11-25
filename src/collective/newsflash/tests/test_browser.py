@@ -30,47 +30,22 @@ class BrowserTest(unittest.TestCase):
         directlyProvides(self.request, INewsFlashLayer)
 
         registry = getUtility(IRegistry)
-        vocab_util = getUtility(IVocabularyFactory,
-                          name='collective.newsflash.Collections')
 
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        self.portal.invokeFactory('Document',
-                                  id='doc',
-                                  title=u"Document Lorem Ipsum")
-        self.doc = self.portal['doc']
-        self.doc.reindexObject()
-        self.portal.invokeFactory('Topic',
-                                  id='news',
-                                  title=u"News Collection Lorem Ipsum")
-        self.news = self.portal['news']
-        type_crit = self.news.addCriterion('Type', 'ATPortalTypeCriterion')
-        type_crit.setValue(['Page', 'Collection'])
-        self.news.setLayout('folder_summary_view')
-        self.news.reindexObject()
-
-        self.settings = registry.forInterface(INewsFlashSettings)
-        self.vocabulary = vocab_util(self.portal)
-
-        catalog = getToolByName(self.portal, 'portal_catalog')
-        results = catalog({'Type': 'Collection'})
-        self.settings.html_source = results[0].getPath()
 
     def test_newsflash_api_view(self):
         view = getMultiAdapter((self.portal, self.request),
                                name='newsflash_api')
         self.failUnless(view())
         self.assertEquals(view.settings.controls, False)
-        self.assertEquals(view.settings.html_source, '/plone/news')
         speed = "%d.1" % view.settings.speed
         self.assertEquals(speed, "0.1")
         self.assertEquals(view.settings.pauseOnItems, 2000)
         self.assertEquals(view.settings.titleText, u"Latest")
 
-        self.failUnless(self.vocabulary.getTerm(view.settings.html_source))
-
     def test_newsflash_js_view(self):
         view = getMultiAdapter((self.portal, self.request),
-                               name='newsflash.js')
+                               name='newsflash_viewlet.js')
         self.failUnless(view())
         default_js = u'jq(document).ready(function() {' + \
                      u'\n        var config_data = {' + \
@@ -93,9 +68,6 @@ class BrowserTest(unittest.TestCase):
                                      view,
                                      IAboveContent)
         self.failUnless(viewlet.render())
-        self.failUnless(self.doc.title in viewlet.render())
-        self.failUnless(self.news.title in viewlet.render())
-
 
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)

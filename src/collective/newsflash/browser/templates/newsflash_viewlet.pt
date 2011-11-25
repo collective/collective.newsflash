@@ -1,7 +1,7 @@
 <tal:newsflash tal:define="has_items context/@@newsflash_api/hasItems | False">
-<div id="newsflash-wrapper" class="no-js" tal:condition="has_items">
+<div id="ticker-wrapper" class="no-js" tal:condition="has_items">
     <ul id="js-news" class="js-hidden" tal:define="items context/@@newsflash_api/getItems">
-        <li class="newsflash-item" tal:repeat="item items">
+        <li class="ticker-item" tal:repeat="item items">
             <span tal:content="item">Item Title</span>
         </li>
     </ul>

@@ -8,7 +8,8 @@ from plone.app.testing import setRoles
 from collective.newsflash.config import PROJECTNAME
 from collective.newsflash.testing import INTEGRATION_TESTING
 
-JS = '++resource++collective.newsflash.javascript/jquery.newsflash.js'
+JS = ['++resource++collective.newsflash.javascript/jquery.ticker.js',
+      '++resource++collective.newsflash.javascript/newsflash.js']
 
 
 class InstallTest(unittest.TestCase):
@@ -24,7 +25,8 @@ class InstallTest(unittest.TestCase):
 
     def test_javascript_installed(self):
         js = getattr(self.portal, 'portal_javascripts')
-        self.failUnless(JS in js.getResourceIds(), 'javascript not installed')
+        for javascript in JS:
+            self.failUnless(javascript in js.getResourceIds(), 'javascript not installed')
 
 
 class UninstallTest(unittest.TestCase):
@@ -42,7 +44,8 @@ class UninstallTest(unittest.TestCase):
 
     def test_javascript_installed(self):
         js = getattr(self.portal, 'portal_javascripts')
-        self.failIf(JS in js.getResourceIds(), 'javascript not removed')
+        for javascript in JS:
+            self.failIf(javascript in js.getResourceIds(), 'javascript not removed')
 
 
 def test_suite():

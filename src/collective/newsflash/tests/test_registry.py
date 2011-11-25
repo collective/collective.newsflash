@@ -55,23 +55,17 @@ class RegistryTest(unittest.TestCase):
         self.failUnless('controls' in INewsFlashSettings)
         self.assertEquals(record_controls.value, config.CONTROLS)
 
-    def test_html_source_record(self):
-        record_html_source = self.registry.records[
-            BASE_REGISTRY % 'html_source']
-        self.failUnless('html_source' in INewsFlashSettings)
-        self.assertEquals(record_html_source.value, None)
-
     def test_pauseOnItems_record(self):
         record_pauseOnItems = self.registry.records[
             BASE_REGISTRY % 'pauseOnItems']
         self.failUnless('pauseOnItems' in INewsFlashSettings)
-        self.assertEquals(record_pauseOnItems.value, config.PAUSE_ON_ITEMS)
+        self.assertEquals(record_pauseOnItems.value, 2000)
 
     def test_speed_record(self):
         record_speed = self.registry.records[
             BASE_REGISTRY % 'speed']
         self.failUnless('speed' in INewsFlashSettings)
-        self.assertEquals(record_speed.value, config.SPEED)
+        self.assertEquals(record_speed.value, 0.1)
 
     def test_titleText_record(self):
         record_titleText = self.registry.records[
