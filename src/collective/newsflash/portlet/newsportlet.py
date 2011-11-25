@@ -13,6 +13,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # TODO: If you require i18n translation for any of your schema fields below,
 # uncomment the following to import your package MessageFactory
 #from collective.newsflash.newsflash import NewsPortletMessageFactory as _
+from zope.security import checkPermission
 
 
 class INewsPortlet(IPortletDataProvider):
@@ -68,9 +69,15 @@ class Renderer(base.Renderer):
     rendered, and the implicit variable 'view' will refer to an instance
     of this class. Other methods can be added and referenced in the template.
     """
-
+    @property
+    def available(self):
+        # I have to do this because the 'view_permission' set in the
+        # configure.zcml is completely useless. see around line 60 from:
+        # plone/app/portlets/metaconfigure.py
+        
+        return checkPermission('cmf.ManagePortal', self.context)
+        
     render = ViewPageTemplateFile('newsportlet.pt')
-
 
 class AddForm(base.AddForm):
     """Portlet add form.
