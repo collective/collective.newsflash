@@ -16,7 +16,8 @@ from collective.newsflash import _
 class INewsFlash(interface.Interface):
     newsflash = schema.List(value_type = schema.Text(title=_(u'Newsflash'),
                                                      default=u''),
-                            default=[])
+                            default=[],
+                            required=False)
 
 class NewsFlashEditForm(form.Form):
     fields = field.Fields(INewsFlash)
@@ -49,7 +50,7 @@ class NewsFlashEditForm(form.Form):
         if errors:
             return
         annotations = IAnnotations(portal)
-        if 'newsflash' in data:
+        if 'newsflash' in data and data['newsflash']:
             annotations['collective.newsflash.newsflash'] = data['newsflash']
         else:
             annotations['collective.newsflash.newsflash'] = []

@@ -61,7 +61,10 @@ class NewsFlash_API(grok.View):
 
     def hasItems(self):
         items = self.getItems()
-        return len(items) > 0
+        if items:
+            return len(items) > 0
+        else:
+            return False
 
     def dumps(self, json_var=None, sort_keys=True, indent=0):
         """ """
