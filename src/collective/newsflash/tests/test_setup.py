@@ -22,15 +22,17 @@ class InstallTest(unittest.TestCase):
 
     def test_installed(self):
         qi = getattr(self.portal, 'portal_quickinstaller')
-        self.failUnless(qi.isProductInstalled(PROJECTNAME))
+        self.assertTrue(qi.isProductInstalled(PROJECTNAME))
 
     def test_browserlayer_installed(self):
         layers = [l.getName() for l in registered_layers()]
-        self.failUnless('INewsFlashLayer' in layers)
+        self.assertTrue('INewsFlashLayer' in layers,
+                        'browser layer not installed')
 
     def test_javascript_installed(self):
         js = getattr(self.portal, 'portal_javascripts')
-        self.failUnless(JS in js.getResourceIds(), 'javascript not installed')
+        self.assertTrue(JS in js.getResourceIds(),
+                        'javascript not installed')
 
 
 class UninstallTest(unittest.TestCase):
@@ -44,15 +46,17 @@ class UninstallTest(unittest.TestCase):
         self.qi.uninstallProducts(products=[PROJECTNAME])
 
     def test_uninstalled(self):
-        self.failIf(self.qi.isProductInstalled(PROJECTNAME))
+        self.assertTrue(not self.qi.isProductInstalled(PROJECTNAME))
 
     def test_browserlayer_uninstalled(self):
         layers = [l.getName() for l in registered_layers()]
-        self.assertTrue('INewsFlashLayer' not in layers)
+        self.assertTrue('INewsFlashLayer' not in layers,
+                        'browser layer not removed')
 
     def test_javascript_installed(self):
         js = getattr(self.portal, 'portal_javascripts')
-        self.failIf(JS in js.getResourceIds(), 'javascript not removed')
+        self.assertTrue(JS not in js.getResourceIds(),
+                        'javascript not removed')
 
 
 def test_suite():
