@@ -13,16 +13,18 @@ from zope.annotation.interfaces import IAnnotations
 
 from collective.newsflash import _
 
+
 class INewsFlash(interface.Interface):
-    newsflash = schema.List(value_type = schema.Text(title=_(u'Newsflash'),
-                                                     default=u''),
+    newsflash = schema.List(value_type=schema.Text(title=_(u'News Flash'),
+                                                   default=u''),
                             default=[],
                             required=False)
 
+
 class NewsFlashEditForm(form.Form):
     fields = field.Fields(INewsFlash)
-    ignoreContext = True # don't use context to get widget data
-    label = _("Manage Newsflashes")
+    ignoreContext = True  # don't use context to get widget data
+    label = _("Manage News Flashes")
 
     def update(self):
         portal = getSite()

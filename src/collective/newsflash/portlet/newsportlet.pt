@@ -1,9 +1,10 @@
-<dl class="portlet portletNewsPortlet"
+<dl class="portlet portletNewsFlash"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="collective.newsflash">
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
-        <span i18n:translate="">Newsflashes</span>
         <span class="portletTopRight"></span>
     </dt>
 
@@ -11,13 +12,12 @@
         <a href="@@manage-newsflashes"
            id="manage-newsflashes"
            name="manage-newsflashes">
-            <span i18n:translate="">Manage Newsflashes</span>
+            <span i18n:translate="">Manage News Flashes</span>
         </a>
     </dd>
 
     <dd class="portletFooter">
         <span class="portletBottomLeft"></span>
-        <!-- Footer -->
         <span class="portletBottomRight"></span>
     </dd>
 

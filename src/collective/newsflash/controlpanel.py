@@ -1,23 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from five import grok
 from zope import schema
 
 from zope.interface import Interface, provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
-from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleVocabulary
 from zope.site.hooks import getSite
 
 from plone.app.registry.browser import controlpanel
 
-from Products.ATContentTypes.interfaces import IATTopic
-from Products.CMFPlone.utils import getToolByName
-
 from collective.newsflash import config
 from collective.newsflash import _
-
-from zope.annotation.interfaces import IAnnotations
 
 
 @provider(IContextAwareDefaultFactory)
@@ -45,9 +37,8 @@ class INewsFlashSettings(Interface):
 
     speed = schema.Float(
         title=_(u'Display speed'),
-        description=_(u'The speed in at which the Newsflash items '
-                       'appear on the screen. Values go from '
-                       '0.0 - 1.0.'),
+        description=_(u'The speed at which the news flashes appear on the '
+                       'screen. Values go from 0.0 - 1.0.'),
         required=True,
         min=0.0,
         max=1.0,
@@ -56,8 +47,8 @@ class INewsFlashSettings(Interface):
 
     pauseOnItems = schema.Int(
         title=_(u'Time items appear on screen'),
-        description=_(u'The time, in miliseconds (ms), that each '
-                       'Newsflash item appears on the screen.'),
+        description=_(u'The time, in miliseconds (ms), that each news flash '
+                       'item appears on the screen.'),
         required=True,
         min=0,
         default=2000,
@@ -65,8 +56,7 @@ class INewsFlashSettings(Interface):
 
     controls = schema.Bool(
         title=_(u'Controls'),
-        description=_(u'Whether or not to show the jQuery News Flash '
-                       'controls.'),
+        description=_(u'Whether or not to show the ticker controls.'),
         default=config.CONTROLS,
         )
 
