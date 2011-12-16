@@ -1,0 +1,9 @@
+collective.newsflash contributors
+=================================
+
+- Franco Pellegrini (frapell@gmail.com)
+
+- Joaquín Rosales (globojorro@gmail.com)
+
+- Héctor Velarde (hector.velarde@gmail.com)
+
