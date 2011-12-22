@@ -12,6 +12,11 @@
     <grok:grok package="." />
     <i18n:registerTranslations directory="locales" />
 
+    <permission
+        id="collective.newsflash.AddNewsFlash"
+        title="collective.newsflash: Add NewsFlash"
+        />
+
     <include package=".browser" />
     <include package=".portlet" />
 
