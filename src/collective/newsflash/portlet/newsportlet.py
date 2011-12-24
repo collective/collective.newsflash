@@ -1,4 +1,5 @@
 from zope.interface import implements
+from Products.CMFCore.utils import getToolByName
 
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
@@ -74,10 +75,11 @@ class Renderer(base.Renderer):
         # I have to do this because the 'view_permission' set in the
         # configure.zcml is completely useless. see around line 60 from:
         # plone/app/portlets/metaconfigure.py
-        
-        return checkPermission('cmf.ManagePortal', self.context)
-        
+        portal = getToolByName(self.context, 'portal_url').getPortalObject()
+        return checkPermission('collective.newsflash.AddNewsFlash', portal)
+
     render = ViewPageTemplateFile('newsportlet.pt')
+
 
 class AddForm(base.AddForm):
     """Portlet add form.
