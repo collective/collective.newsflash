@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-14 22:25+0000\n"
+"POT-Creation-Date: 2011-12-24 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.newsflash\n"
 
-#: collective/newsflash/controlpanel.py:59
+#: collective/newsflash/controlpanel.py:58
 msgid "Controls"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Display speed"
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:69
+#: collective/newsflash/controlpanel.py:67
 msgid "Here you can modify the settings for collective.newsflash."
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "News Flash"
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:68
+#: collective/newsflash/controlpanel.py:66
 #: collective/newsflash/profiles/default/controlpanel.xml
 msgid "News Flash Settings"
 msgstr ""
@@ -52,14 +52,14 @@ msgid "Save"
 msgstr ""
 
 #: collective/newsflash/controlpanel.py:40
-msgid "The speed in at which the News flash items appear on the screen. Values go from 0.0 - 1.0."
-msgstr ""
-
-#: collective/newsflash/controlpanel.py:51
-msgid "The time, in miliseconds (ms), that each News flash item appears on the screen."
+msgid "The speed at which the news flashes appear on the screen. Values go from 0.0 - 1.0."
 msgstr ""
 
 #: collective/newsflash/controlpanel.py:50
+msgid "The time, in miliseconds (ms), that each news flash item appears on the screen."
+msgstr ""
+
+#: collective/newsflash/controlpanel.py:49
 msgid "Time items appear on screen"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "To remove the title set this to an empty string."
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:60
-msgid "Whether or not to show the jQuery News Flash controls."
+#: collective/newsflash/controlpanel.py:59
+msgid "Whether or not to show the ticker controls."
 msgstr ""
 

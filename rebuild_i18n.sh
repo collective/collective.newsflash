@@ -6,7 +6,7 @@ I18NDOMAIN="collective.newsflash"
 # All on one line normally:
 bin/i18ndude rebuild-pot --pot src/collective/newsflash/locales/${I18NDOMAIN}.pot \
     --create ${I18NDOMAIN} \
-   .
+    src/collective/newsflash
 
 # Synchronise the resulting .pot with all .po files
 for po in src/collective/newsflash/locales/*/LC_MESSAGES/${I18NDOMAIN}.po; do

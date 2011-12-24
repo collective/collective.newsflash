@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.newsflash\n"
-"POT-Creation-Date: 2011-12-14 22:25+0000\n"
-"PO-Revision-Date: 2011-12-14 16:15-0600\n"
+"POT-Creation-Date: 2011-12-24 15:38+0000\n"
+"PO-Revision-Date: 2011-12-24 09:39-0600\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: collective/newsflash/controlpanel.py:59
+#: collective/newsflash/controlpanel.py:58
 msgid "Controls"
 msgstr "Controles"
 
@@ -23,7 +23,7 @@ msgstr "Controles"
 msgid "Display speed"
 msgstr "Velocidad de aparición"
 
-#: collective/newsflash/controlpanel.py:69
+#: collective/newsflash/controlpanel.py:67
 msgid "Here you can modify the settings for collective.newsflash."
 msgstr "Desde aquí puede modificar la configuración de collective.newsflash."
 
@@ -40,7 +40,7 @@ msgstr "Administrar las noticias de última hora"
 msgid "News Flash"
 msgstr "Noticia de última hora"
 
-#: collective/newsflash/controlpanel.py:68
+#: collective/newsflash/controlpanel.py:66
 #: collective/newsflash/profiles/default/controlpanel.xml
 msgid "News Flash Settings"
 msgstr "Configuración de la barra de noticias de última hora"
@@ -50,14 +50,14 @@ msgid "Save"
 msgstr "Guardar"
 
 #: collective/newsflash/controlpanel.py:40
-msgid "The speed at which the ticker items appear on the screen. Values go from 0.0 - 1.0."
+msgid "The speed at which the news flashes appear on the screen. Values go from 0.0 - 1.0."
 msgstr "La velocidad a la que aparecen las noticias en pantalla. Los valores van de 0.0 a 1.0."
 
-#: collective/newsflash/controlpanel.py:51
+#: collective/newsflash/controlpanel.py:50
 msgid "The time, in miliseconds (ms), that each news flash item appears on the screen."
 msgstr "El tiempo, en milésimas de segundo, que cada noticia aparece en la pantalla."
 
-#: collective/newsflash/controlpanel.py:50
+#: collective/newsflash/controlpanel.py:49
 msgid "Time items appear on screen"
 msgstr "El tiempo que permanece en pantalla cada noticia"
 
@@ -69,7 +69,7 @@ msgstr "Texto de título"
 msgid "To remove the title set this to an empty string."
 msgstr "Para remover el título, deje este campo vacío."
 
-#: collective/newsflash/controlpanel.py:60
-msgid "Whether or not to show the news ticker controls."
+#: collective/newsflash/controlpanel.py:59
+msgid "Whether or not to show the ticker controls."
 msgstr "Define si se muestran o no los controles de la barra de noticias"
 
