@@ -5,6 +5,7 @@
 
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
+        <span i18n:translate="">News Flash</span>
         <span class="portletTopRight"></span>
     </dt>
 
@@ -14,11 +15,6 @@
            name="manage-newsflashes">
             <span i18n:translate="">Manage News Flashes</span>
         </a>
-    </dd>
-
-    <dd class="portletFooter">
-        <span class="portletBottomLeft"></span>
-        <span class="portletBottomRight"></span>
     </dd>
 
 </dl>
