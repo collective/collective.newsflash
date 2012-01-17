@@ -33,15 +33,15 @@ class InstallTest(unittest.TestCase):
         roles = [r['name'] for r in roles if r['selected']]
         self.assertEqual(roles, ['Contributor', 'Manager', 'Owner', 'Site Administrator'])
 
-    def test_browserlayer_installed(self):
+    def test_browserlayer(self):
         layers = [l.getName() for l in registered_layers()]
         self.assertTrue('INewsFlashLayer' in layers,
                         'browser layer not installed')
 
-    def test_javascript_installed(self):
-        js = getattr(self.portal, 'portal_javascripts')
-        self.assertTrue(JS in js.getResourceIds(),
-                        'javascript not installed')
+    def test_jsregistry(self):
+        portal_javascripts = self.portal.portal_javascripts
+        self.assertTrue(JS in portal_javascripts.getResourceIds(),
+                        '%s not installed' % JS)
 
 
 class UninstallTest(unittest.TestCase):
@@ -58,15 +58,16 @@ class UninstallTest(unittest.TestCase):
     def test_uninstalled(self):
         self.assertTrue(not self.qi.isProductInstalled(PROJECTNAME))
 
-    def test_browserlayer_uninstalled(self):
+    def test_browserlayer_removed(self):
+        # XXX: removal is implemented until plone.browserlayer 2.1.1
         layers = [l.getName() for l in registered_layers()]
-        self.assertTrue('INewsFlashLayer' not in layers,
-                        'browser layer not removed')
+        self.assertFalse('INewsFlashLayer' in layers,
+                         'browser layer not removed')
 
-    def test_javascript_installed(self):
-        js = getattr(self.portal, 'portal_javascripts')
-        self.assertTrue(JS not in js.getResourceIds(),
-                        'javascript not removed')
+    def test_jsregistry_removed(self):
+        portal_javascripts = self.portal.portal_javascripts
+        self.assertFalse(JS in portal_javascripts.getResourceIds(),
+                         '%s not removed' % JS)
 
     def test_records_removed_from_registry(self):
         records = [
