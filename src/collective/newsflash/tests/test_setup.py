@@ -27,6 +27,12 @@ class InstallTest(unittest.TestCase):
         qi = getattr(self.portal, 'portal_quickinstaller')
         self.assertTrue(qi.isProductInstalled(PROJECTNAME))
 
+    def test_add_permission(self):
+        permission = 'collective.newsflash: Add News Flash'
+        roles = self.portal.rolesOfPermission(permission)
+        roles = [r['name'] for r in roles if r['selected']]
+        self.assertEqual(roles, ['Contributor', 'Manager', 'Owner', 'Site Administrator'])
+
     def test_browserlayer_installed(self):
         layers = [l.getName() for l in registered_layers()]
         self.assertTrue('INewsFlashLayer' in layers,

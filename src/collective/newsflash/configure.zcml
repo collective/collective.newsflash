@@ -14,7 +14,7 @@
 
     <permission
         id="collective.newsflash.AddNewsFlash"
-        title="collective.newsflash: Add NewsFlash"
+        title="collective.newsflash: Add News Flash"
         />
 
     <include package=".browser" />
