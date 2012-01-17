@@ -1,0 +1,48 @@
+*** Settings ***
+
+Resource  plone.txt
+
+Suite Setup  Setup
+
+*** Variables ***
+
+*** Test cases ***
+
+Test Portlet
+    Goto homepage
+    Page Should Contain  Manage News Flashes
+
+Test Add News Flash
+    Goto Homepage
+    Click Manage News Flashes
+    Add News Flash
+    Page Should Contain  Latest
+    Page Should Contain  test1
+
+Test Remove News Flash
+    Goto Homepage
+    Click Manage News Flashes
+    Remove News Flash
+    Page Should Not Contain  test1
+    Page Should Not Contain  Latest
+
+*** Keywords ***
+
+Setup
+    Log In  admin  admin
+
+Click Manage News Flashes
+    Click Element  css=a#manage-newsflashes.link-overlay  don't wait
+    Wait Until Page Contains Element  css=div.pb-ajax div#content-core
+
+Add News Flash
+    Click Button  Add  don't wait
+    Wait Until Page Contains  News Flash 1
+    Input Text  css=textarea#form-widgets-newsflash-0  test1
+    Click Button  Save
+
+Remove News Flash
+    Select Checkbox  css=input#form-widgets-newsflash-0-remove
+    Click Button  Remove selected  don't wait
+    Wait Until Keyword Succeeds  1  5  Page Should Not Contain  Remove selected
+    Click Button  Save
