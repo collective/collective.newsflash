@@ -22,7 +22,11 @@
 		var newsID = '#' + $(this).attr('id');
 
 		/* Get the tag type - we will check this later to makde sure it is a UL tag */
-		var tagType = $(this).get(0).tagName; 	
+		var element = $(this).get(0);
+		var tagType = undefined;
+		if (element !== undefined) {
+    		tagType = $(this).get(0).tagName;
+        }
 
 		return this.each(function() { 
 			/* Internal vars */
@@ -48,6 +52,11 @@
 					playPauseID: '#play-pause'
 				}
 			};
+            // if the tagType is undefined is because the ticker element doesn't exist
+            if (tagType == undefined) {
+                debugError('empy element');
+                return false
+            }
 
 			// if we are not using a UL, display an error message and stop any further execution
 			if (tagType != 'UL' && tagType != 'OL' && opts.htmlFeed === true) {
