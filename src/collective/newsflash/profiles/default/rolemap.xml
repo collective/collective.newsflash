@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rolemap>
  <permissions>
-  <permission name="collective.newsflash: Add NewsFlash" acquire="True">
+  <permission name="collective.newsflash: Add News Flash" acquire="True">
    <role name="Manager"/>
    <role name="Site Administrator"/>
    <role name="Owner"/>

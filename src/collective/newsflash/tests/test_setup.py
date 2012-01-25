@@ -2,13 +2,10 @@
 
 import unittest2 as unittest
 
-from zope.component import getUtility
-
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 
 from plone.browserlayer.utils import registered_layers
-from plone.registry.interfaces import IRegistry
 
 from collective.newsflash.config import PROJECTNAME
 from collective.newsflash.testing import INTEGRATION_TESTING
@@ -27,15 +24,21 @@ class InstallTest(unittest.TestCase):
         qi = getattr(self.portal, 'portal_quickinstaller')
         self.assertTrue(qi.isProductInstalled(PROJECTNAME))
 
-    def test_browserlayer_installed(self):
+    def test_add_permission(self):
+        permission = 'collective.newsflash: Add News Flash'
+        roles = self.portal.rolesOfPermission(permission)
+        roles = [r['name'] for r in roles if r['selected']]
+        self.assertEqual(roles, ['Contributor', 'Manager', 'Owner', 'Site Administrator'])
+
+    def test_browserlayer(self):
         layers = [l.getName() for l in registered_layers()]
         self.assertTrue('INewsFlashLayer' in layers,
                         'browser layer not installed')
 
-    def test_javascript_installed(self):
-        js = getattr(self.portal, 'portal_javascripts')
-        self.assertTrue(JS in js.getResourceIds(),
-                        'javascript not installed')
+    def test_jsregistry(self):
+        portal_javascripts = self.portal.portal_javascripts
+        self.assertTrue(JS in portal_javascripts.getResourceIds(),
+                        '%s not installed' % JS)
 
 
 class UninstallTest(unittest.TestCase):
@@ -45,33 +48,21 @@ class UninstallTest(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        self.registry = getUtility(IRegistry)
         self.qi = getattr(self.portal, 'portal_quickinstaller')
         self.qi.uninstallProducts(products=[PROJECTNAME])
 
     def test_uninstalled(self):
         self.assertTrue(not self.qi.isProductInstalled(PROJECTNAME))
 
-    def test_browserlayer_uninstalled(self):
+    def test_browserlayer_removed(self):
         layers = [l.getName() for l in registered_layers()]
-        self.assertTrue('INewsFlashLayer' not in layers,
-                        'browser layer not removed')
+        self.assertFalse('INewsFlashLayer' in layers,
+                         'browser layer not removed')
 
-    def test_javascript_installed(self):
-        js = getattr(self.portal, 'portal_javascripts')
-        self.assertTrue(JS not in js.getResourceIds(),
-                        'javascript not removed')
-
-    def test_records_removed_from_registry(self):
-        records = [
-            'collective.newsflash.controlpanel.INewsFlashSettings.controls',
-            'collective.newsflash.controlpanel.INewsFlashSettings.pauseOnItems',
-            'collective.newsflash.controlpanel.INewsFlashSettings.speed',
-            'collective.newsflash.controlpanel.INewsFlashSettings.titleText',
-            ]
-        for r in records:
-            self.assertTrue(r not in self.registry.records,
-                            '%s not removed from configuration registry' % r)
+    def test_jsregistry_removed(self):
+        portal_javascripts = self.portal.portal_javascripts
+        self.assertFalse(JS in portal_javascripts.getResourceIds(),
+                         '%s not removed' % JS)
 
 
 def test_suite():

@@ -1,9 +1,14 @@
-collective.newsflash contributors
-=================================
+Contributors
+------------
 
-- Franco Pellegrini (frapell@gmail.com)
+* Joaquín Rosales (globojorro@gmail.com) - idea
 
-- Joaquín Rosales (globojorro@gmail.com)
+* Franco Pellegrini (frapell@gmail.com)
 
-- Héctor Velarde (hector.velarde@gmail.com)
+* Héctor Velarde (hector.velarde@gmail.com)
 
+* Silvestre Huens (s.huens@gmail.com)
+
+* Rhodri George (www.jquerynewsticker.com) - jQuery News Ticker
+
+Development sponsored by Open Multimedia.

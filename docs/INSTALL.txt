@@ -1,39 +1,37 @@
-collective.newsflash Installation
-=======================
+Installation
+------------
 
- * When you're reading this you have probably already run
-   ``easy_install collective.newsflash``. Find out how to install setuptools
-   (and EasyInstall) here:
-   http://peak.telecommunity.com/DevCenter/EasyInstall
+To enable this product in a buildout-based installation:
 
- * Create a file called ``collective.newsflash-configure.zcml`` in the
-   ``/path/to/instance/etc/package-includes`` directory.  The file
-   should only contain this::
-
-       <include package="collective.newsflash.newsflash" />
-
-Alternatively, if you are using zc.buildout and the plone.recipe.zope2instance
-recipe to manage your project, you can do this:
-
- * Add ``collective.newsflash`` to the list of eggs to install, e.g.:
+1. Edit your buildout.cfg and add ``collective.newsflash`` to the list of eggs
+   to install ::
 
     [buildout]
     ...
     eggs =
-        ...
         collective.newsflash
 
-  * Tell the plone.recipe.zope2instance recipe to install a ZCML slug:
+2. You may need to extend a five.grok known good set (KGS) to make sure that
+   you get the right versions of the packages that make up five.grok ::
 
-    [instance]
-    recipe = plone.recipe.zope2instance
+    [buildout]
     ...
-    zcml =
-        collective.newsflash.newsflash
+    extends =
+        http://good-py.appspot.com/release/five.grok/1.2.0-1?plone=4.1
 
-  * Re-run buildout, e.g. with:
+3. You may also need to pin zope.schema to version 3.8.0 or higher ::
 
-    $ ./bin/buildout
+    [versions]
+    ...
+    zope.schema = 3.8.0
 
-You can skip the ZCML slug if you are going to explicitly include the package
-from another package's configure.zcml file.
+After updating the configuration you need to run ''bin/buildout'', which will
+take care of updating your system.
+
+Go to the 'Site Setup' page in a Plone site and click on the 'Add-ons' link.
+
+Check the box next to ''collective.newsflash'' and click the 'Activate'
+button.
+
+Note: You may have to empty your browser cache and save your resource
+registries in order to see the effects of the product installation.

@@ -9,13 +9,14 @@
 
     <includeDependencies package="." />
     <five:registerPackage package="." />
-    <grok:grok package="." />
     <i18n:registerTranslations directory="locales" />
 
     <permission
         id="collective.newsflash.AddNewsFlash"
-        title="collective.newsflash: Add NewsFlash"
+        title="collective.newsflash: Add News Flash"
         />
+
+    <grok:grok package="." />
 
     <include package=".browser" />
     <include package=".portlet" />
