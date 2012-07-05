@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import json
 
-from zope.site.hooks import getSite
-
 from five import grok
 from zope.component import queryUtility
 from zope.interface import Interface
+
+from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.viewlets.interfaces import IAboveContent
 from plone.app.layout.viewlets.interfaces import IHtmlHeadLinks
@@ -44,7 +44,7 @@ class NewsFlash_API(grok.View):
 
     def render(self):
         return self.dumps(self.getSettings())
-        
+
     def getSettings(self, *args, **kwargs):
         settings = dict(controls=self.settings.controls,
                         titleText=self.settings.titleText,
@@ -55,8 +55,8 @@ class NewsFlash_API(grok.View):
         return settings
 
     def getItems(self):
-        site = getSite()
-        annotations = IAnnotations(site)        
+        site = getToolByName(self.context, 'portal_url').getPortalObject()
+        annotations = IAnnotations(site)
         return annotations.get('collective.newsflash.newsflash', [])
 
     def hasItems(self):
