@@ -34,3 +34,5 @@ Going to "Site Setup" -> "News Flash Settings" you can:
 - Change the time that the text remains in the screen.
 - Hide/Show a widget to control the texts flow.
 
+.. _`BBC News`: http://www.bbc.co.uk/news/
+
