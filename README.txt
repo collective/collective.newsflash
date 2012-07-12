@@ -1,6 +1,6 @@
-====================
+********************
 collective.newsflash
-====================
+********************
 
 .. contents:: Table of Contents
 
@@ -9,22 +9,28 @@ Overview
 
 News ticker inspired by the one on the `BBC News`_ website.
 
-Features
---------
+Usage
+-----
 
-- Lightweight and easy to use news ticker
+After installing the product, you should get a portlet on the left side of
+your site, with a "Manage News Flashes" link. If you want, you can go to
+@@manage-portlets, remove it and add it somewhere else.
 
-Use
----
+Clicking this "Manage News Flashes" link, you should get a view for adding,
+modifying or removing newsflashes, in an overlay, if your browser supports
+Javascript.
 
-- Open 'News Ticker Settings' configlet on Plone's 'Site Setup'.
+After clicking "Save", and reloading your site, you should get the newsflashes
+rolling over the top section.
 
-- Select the collection containing the items you want to display.
+Configuring
+-----------
 
-That's it! You will see the items included in the collection on a site-wide
-news ticker.
+The product includes a configlet, which allows you to customize the newsflash.
+Going to "Site Setup" -> "News Flash Settings" you can:
 
-You can click on any item to open it.
-
-.. _`jQuery News Ticker`: http://www.jquerynewsticker.com/
+- Change the title text.
+- Change the speed in which the text appears.
+- Change the time that the text remains in the screen.
+- Hide/Show a widget to control the texts flow.
 
