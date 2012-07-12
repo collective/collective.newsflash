@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from plone.theme.interfaces import IDefaultPloneLayer
+from zope.interface import Interface
 
 
-class INewsFlashLayer(IDefaultPloneLayer):
-    """ Browser layer for newsflash. """
+class INewsFlashLayer(Interface):
+    """ Browser layer for collective.newsflash. """
