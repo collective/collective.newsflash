@@ -1,14 +1,16 @@
 Contributors
 ------------
 
-* Joaquín Rosales (globojorro@gmail.com) - idea
+* Franco Pellegrini
 
-* Franco Pellegrini (frapell@gmail.com)
+* Héctor Velarde
 
-* Héctor Velarde (hector.velarde@gmail.com)
-
-* Silvestre Huens (s.huens@gmail.com)
-
-* Rhodri George (www.jquerynewsticker.com) - jQuery News Ticker
+* Silvestre Huens
 
 Development sponsored by Open Multimedia.
+
+collective.newsticker is an implementation of the `jQuery News Ticker`_ plugin
+for Plone.
+
+.. _`jQuery News Ticker`: http://www.jquerynewsticker.com/
+
