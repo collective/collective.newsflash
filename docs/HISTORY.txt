@@ -4,6 +4,6 @@ Changelog
 Because you have to know where your towel is.
 
 1.0 (unreleased)
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 - Initial release.
