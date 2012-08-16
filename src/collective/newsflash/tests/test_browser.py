@@ -53,7 +53,7 @@ class BrowserTest(unittest.TestCase):
                      u'\n"feedType": "xml", ' + \
                      u'\n"htmlFeed": true, ' + \
                      u'\n"pauseOnItems": 2000, ' + \
-                     u'\n"speed": 0.10000000000000001, ' + \
+                     u'\n"speed": 0.1, ' + \
                      u'\n"titleText": "Latest"' + \
                      u'\n}' + \
                      u'\n        jq("#js-news").ticker(config_data);' + \
