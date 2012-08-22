@@ -22,7 +22,7 @@
         for="*"
         name="manage-newsflashes"
         class=".newsflash.NewsFlashEdit"
-        permission="zope2.View"
+        permission="cmf.ManagePortal"
         />
 
 </configure>
