@@ -6,7 +6,11 @@ Because you have to know where your towel is.
 1.0rc2 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- bugfix: Do not allow anonymous users to access the edit view for newslfashes
+  [frapell]
+
+- bugfix: Do not try to annotate portal object if it's not the portal object
+  [frapell]
 
 
 1.0rc1 (2012-08-16)
