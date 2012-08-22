@@ -11,6 +11,8 @@ from plone.z3cform.layout import wrap_form
 
 from zope.annotation.interfaces import IAnnotations
 
+from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+
 from collective.newsflash import _
 
 
@@ -28,9 +30,11 @@ class NewsFlashEditForm(form.Form):
 
     def update(self):
         portal = getSite()
-        annotations = IAnnotations(portal)
-        field = self.fields['newsflash'].field
-        field.default = annotations.get('collective.newsflash.newsflash', [])
+        if IPloneSiteRoot.providedBy(portal):
+            annotations = IAnnotations(portal)
+            field = self.fields['newsflash'].field
+            field.default = annotations.get('collective.newsflash.newsflash', [])
+
         # call the base class version - this is very important!
         super(NewsFlashEditForm, self).update()
 
@@ -48,14 +52,15 @@ class NewsFlashEditForm(form.Form):
     @button.buttonAndHandler(_(u'Save'))
     def handleApply(self, action):
         portal = getSite()
-        data, errors = self.extractData()
-        if errors:
-            return
-        annotations = IAnnotations(portal)
-        if 'newsflash' in data and data['newsflash']:
-            annotations['collective.newsflash.newsflash'] = data['newsflash']
-        else:
-            annotations['collective.newsflash.newsflash'] = []
-        return None
+        if IPloneSiteRoot.providedBy(portal):
+            data, errors = self.extractData()
+            if errors:
+                return
+            annotations = IAnnotations(portal)
+            if 'newsflash' in data and data['newsflash']:
+                annotations['collective.newsflash.newsflash'] = data['newsflash']
+            else:
+                annotations['collective.newsflash.newsflash'] = []
+            return None
 
 NewsFlashEdit = wrap_form(NewsFlashEditForm)
