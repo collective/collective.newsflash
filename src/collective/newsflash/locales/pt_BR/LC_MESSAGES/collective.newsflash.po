@@ -1,0 +1,75 @@
+# Franco Pellegrini <frapell@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.newsflash\n"
+"POT-Creation-Date: 2012-09-05 19:40+0000\n"
+"PO-Revision-Date: 2012-09-05 16:38-0300\n"
+"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
+"Language-Team: Spanish <https://github.com/collective>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: collective/newsflash/controlpanel.py:58
+msgid "Controls"
+msgstr "Controles"
+
+#: collective/newsflash/controlpanel.py:39
+msgid "Display speed"
+msgstr "Velocidade do texto"
+
+#: collective/newsflash/controlpanel.py:67
+msgid "Here you can modify the settings for collective.newsflash."
+msgstr "Aqui você pode modificar as configurações para o collective.newsflash."
+
+#: collective/newsflash/config.py:8
+msgid "Latest"
+msgstr "O mais recente"
+
+#: collective/newsflash/browser/newsflash.py:27
+#: collective/newsflash/portlet/newsportlet.pt:12
+msgid "Manage News Flashes"
+msgstr "Gerenciar as notícias de última hora"
+
+#: collective/newsflash/browser/newsflash.py:18
+msgid "News Flash"
+msgstr "Notícias de última hora"
+
+#: collective/newsflash/controlpanel.py:66
+#: collective/newsflash/profiles/default/controlpanel.xml
+msgid "News Flash Settings"
+msgstr "Configuração da barra de notícias de última hora"
+
+#: collective/newsflash/browser/newsflash.py:48
+msgid "Save"
+msgstr "Salvar"
+
+#: collective/newsflash/controlpanel.py:40
+msgid "The speed at which the news flashes appear on the screen. Values go from 0.0 - 1.0."
+msgstr "A velocidade com que os notícias de última hora aparecem na tela. Os valores vão de 0,0 - 1,0."
+
+#: collective/newsflash/controlpanel.py:50
+msgid "The time, in milliseconds (ms), that each news flash item appears on the screen."
+msgstr "O tempo, em milissegundos (ms), em que cada notícia de última hora aparece na tela."
+
+#: collective/newsflash/controlpanel.py:49
+msgid "Time items appear on screen"
+msgstr "Tempo que os itens aparecem na tela"
+
+#: collective/newsflash/controlpanel.py:30
+msgid "Title text"
+msgstr "Texto do título"
+
+#: collective/newsflash/controlpanel.py:31
+msgid "To remove the title set this to an empty string."
+msgstr "Fica vazío para remover o título."
+
+#: collective/newsflash/controlpanel.py:59
+msgid "Whether or not to show the ticker controls."
+msgstr "Se deve mostrar ou não os controles do ticker."
+
