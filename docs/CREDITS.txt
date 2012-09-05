@@ -1,8 +1,8 @@
 Share and Enjoy
 ---------------
 
-collective.newsflash would not have been possible without the contribution of
-the following people:
+``collective.newsflash`` would not have been possible without the contribution
+of the following people:
 
 - Franco Pellegrini
 - Héctor Velarde
