@@ -6,7 +6,10 @@ Because you have to know where your towel is.
 1.0rc2 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Updated Spanish translation and added Brazilian Portuguese translation.
+  [hvelarde]
+
+- Package license is now GPLv2. [hvelarde]
 
 
 1.0rc1 (2012-08-16)
