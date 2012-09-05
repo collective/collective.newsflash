@@ -47,8 +47,8 @@ class INewsFlashSettings(Interface):
 
     pauseOnItems = schema.Int(
         title=_(u'Time items appear on screen'),
-        description=_(u'The time, in miliseconds (ms), that each news flash '
-                       'item appears on the screen.'),
+        description=_(u'The time, in milliseconds (ms), that each news '
+                       'flash item appears on the screen.'),
         required=True,
         min=0,
         default=2000,

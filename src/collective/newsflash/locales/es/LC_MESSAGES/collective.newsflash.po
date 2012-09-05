@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.newsflash\n"
-"POT-Creation-Date: 2012-01-17 04:25+0000\n"
-"PO-Revision-Date: 2011-12-24 09:39-0600\n"
+"POT-Creation-Date: 2012-09-05 19:40+0000\n"
+"PO-Revision-Date: 2012-09-05 16:31-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgid "The speed at which the news flashes appear on the screen. Values go from 
 msgstr "La velocidad a la que aparecen las noticias en pantalla. Los valores van de 0.0 a 1.0."
 
 #: collective/newsflash/controlpanel.py:50
-msgid "The time, in miliseconds (ms), that each news flash item appears on the screen."
+msgid "The time, in milliseconds (ms), that each news flash item appears on the screen."
 msgstr "El tiempo, en milésimas de segundo, que cada noticia aparece en la pantalla."
 
 #: collective/newsflash/controlpanel.py:49
