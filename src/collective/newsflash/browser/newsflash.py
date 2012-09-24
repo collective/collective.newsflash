@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 
 from zope import interface
 from zope import schema

@@ -6,7 +6,8 @@ Because you have to know where your towel is.
 1.1 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Import getSite from zope.component to avoid dependency on
+  zope.app.component. [hvelarde]
 
 
 1.0 (2012-09-24)
