@@ -23,6 +23,15 @@ Javascript.
 After clicking "Save", and reloading your site, you should get the news
 flashes rolling over the top section.
 
+.. figure:: https://github.com/collective/collective.newsflash/raw/master/newsflash.png
+    :align: center
+    :height: 652px
+    :width: 1143px
+    :scale: 50%
+    :target: https://github.com/collective/collective.newsflash/raw/master/newsflash.png
+
+    The News Ticker in action.
+
 Configuring
 ^^^^^^^^^^^
 
