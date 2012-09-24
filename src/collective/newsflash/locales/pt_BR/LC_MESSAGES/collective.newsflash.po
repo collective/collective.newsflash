@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: collective.newsflash\n"
 "POT-Creation-Date: 2012-09-05 19:40+0000\n"
-"PO-Revision-Date: 2012-09-05 16:38-0300\n"
+"PO-Revision-Date: 2012-09-24 17:09-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Aqui você pode modificar as configurações para o collective.newsflash
 
 #: collective/newsflash/config.py:8
 msgid "Latest"
-msgstr "O mais recente"
+msgstr "Notícia"
 
 #: collective/newsflash/browser/newsflash.py:27
 #: collective/newsflash/portlet/newsportlet.pt:12
@@ -51,7 +51,7 @@ msgstr "Salvar"
 
 #: collective/newsflash/controlpanel.py:40
 msgid "The speed at which the news flashes appear on the screen. Values go from 0.0 - 1.0."
-msgstr "A velocidade com que os notícias de última hora aparecem na tela. Os valores vão de 0,0 - 1,0."
+msgstr "A velocidade com que as notícias de última hora aparecem na tela. Os valores vão de 0,0 - 1,0."
 
 #: collective/newsflash/controlpanel.py:50
 msgid "The time, in milliseconds (ms), that each news flash item appears on the screen."
@@ -67,7 +67,7 @@ msgstr "Texto do título"
 
 #: collective/newsflash/controlpanel.py:31
 msgid "To remove the title set this to an empty string."
-msgstr "Fica vazío para remover o título."
+msgstr "Para remover o título deixe o campo em branco."
 
 #: collective/newsflash/controlpanel.py:59
 msgid "Whether or not to show the ticker controls."
