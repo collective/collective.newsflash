@@ -11,10 +11,6 @@ Because you have to know where your towel is.
 - Import getSite from zope.component to avoid dependency on
   zope.app.component. [hvelarde]
 
-- Replaced the simple "Text" field for each of the newsflashes with 
-  SimpleRichText from collective.z3cform.widgets to allow a basic
-  HTML editor for the text [frapell]
-
 
 1.0 (2012-09-24)
 ^^^^^^^^^^^^^^^^^^^

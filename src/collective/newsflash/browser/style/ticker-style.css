@@ -35,7 +35,7 @@
 	position: absolute;
 	background-color: #dddddd;
 	color: #1F527B;
-	/*font-weight: bold;*/
+	font-weight: bold;
 	text-transform: none;
 	overflow: hidden;
 	white-space: nowrap;

@@ -13,18 +13,12 @@ from zope.annotation.interfaces import IAnnotations
 
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 
-from collective.z3cform.widgets.simple_rich_text import SimpleRichText
-
 from collective.newsflash import _
 
 
 class INewsFlash(interface.Interface):
-    newsflash = schema.List(value_type=SimpleRichText(title=_(u'News Flash'),
-                                                      default=u'',
-                                                      iframe_height=30,
-                                                      format_block=False,
-                                                      unordered_list=False,
-                                                      image=False),
+    newsflash = schema.List(value_type=schema.Text(title=_(u'News Flash'),
+                                                   default=u''),
                             default=[],
                             required=False)
 

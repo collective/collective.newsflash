@@ -42,11 +42,9 @@ setup(name='collective.newsflash',
       zip_safe=False,
       install_requires=[
         'setuptools',
-        'Pillow',
         'five.grok>=1.2.0',
         'Products.CMFPlone>=4.1',
         'plone.app.z3cform',
-        'collective.z3cform.widgets',
         ],
       extras_require={
         'test': ['plone.app.testing'],
