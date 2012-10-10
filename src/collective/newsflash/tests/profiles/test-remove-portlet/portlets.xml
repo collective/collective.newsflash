@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <portlet title="News Flash Portlet"
+    addview="collective.newsflash.newsportlet.NewsPortlet"
+    description="A portlet to manage News Flashes"
+    i18n:attributes="title; description">
+  <for interface="plone.app.portlets.interfaces.IColumn" />
+  <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
+ <assignment
+    manager="plone.leftcolumn"
+    category="context"
+    key="/"
+    type="collective.newsflash.newsportlet.NewsPortlet"
+    name="newsflash"
+    />
+</portlets>

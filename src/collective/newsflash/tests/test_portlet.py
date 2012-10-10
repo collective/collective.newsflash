@@ -1,4 +1,7 @@
 import unittest2 as unittest
+from Products.Five import zcml
+from Products.Five import fiveconfigure
+from Testing import ZopeTestCase as ztc
 
 from collective.newsflash.testing import INTEGRATION_TESTING
 
@@ -9,6 +12,7 @@ from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignment
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.portlets.interfaces import IPortletRenderer
+from plone.portlets.interfaces import IPortletAssignmentMapping
 
 from plone.app.portlets.storage import PortletAssignmentMapping
 
@@ -23,6 +27,8 @@ class PortletTest(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
+        portal_setup = self.portal.portal_setup
+        portal_setup.runAllImportStepsFromProfile('profile-collective.newsflash.tests:test-remove-portlet')
         self.request = self.layer['request']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
@@ -82,6 +88,15 @@ class PortletTest(unittest.TestCase):
             (context, request, view, manager, assignment), IPortletRenderer)
         self.failUnless(isinstance(renderer, newsportlet.Renderer))
 
+    def test_remove_portlet(self):
+        manager_name = "plone.leftcolumn"
+        manager = getUtility(IPortletManager, name=manager_name, context=self.portal)
+        mapping = getMultiAdapter((self.portal, manager), IPortletAssignmentMapping)
+        self.failUnless('newsflash' in [id for id, assignment in mapping.items()])
+        portal_setup = self.portal.portal_setup
+        portal_setup.runAllImportStepsFromProfile('profile-collective.newsflash:remove-portlet')
+        mapping = getMultiAdapter((self.portal, manager), IPortletAssignmentMapping)
+        self.failIf('newsflash' in [id for id, assignment in mapping.items()])
 
 
 class RenderTest(unittest.TestCase):

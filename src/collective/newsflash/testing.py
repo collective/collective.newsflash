@@ -14,6 +14,7 @@ class Fixture(PloneSandboxLayer):
         # Load ZCML
         import collective.newsflash
         self.loadZCML(package=collective.newsflash)
+        self.loadZCML(package=collective.newsflash.tests, name='test-remove-portlet.zcml')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup

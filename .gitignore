@@ -4,6 +4,10 @@
 *~
 .installed.cfg
 .mr.developer.cfg
+.project
+.pydevproject
+.settings/
+local.cfg
 library-settings.txt
 log.html
 output.xml
@@ -16,3 +20,4 @@ downloads/
 eggs/
 parts/
 var/
+src/collective.*
