@@ -17,7 +17,7 @@
 </div>
 
 <div id="ticker-wrapper" class="no-js"
-     tal:condition="not:has_items">
+     tal:condition="python:can_edit and not has_items">
     <ul id="js-news" class="js-hidden">
         <li class="ticker-item">
             <span>You have no newsflash registered.</span>
