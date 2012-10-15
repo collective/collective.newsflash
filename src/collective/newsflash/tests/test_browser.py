@@ -3,11 +3,9 @@
 import unittest2 as unittest
 
 from zope.component import getMultiAdapter
-from zope.component import getUtility
 from zope.component import ComponentLookupError
 
 from zope.interface import directlyProvides
-from zope.schema.interfaces import IVocabularyFactory
 
 from plone.app.layout.viewlets.interfaces import IAboveContent
 
@@ -17,13 +15,8 @@ from plone.app.testing import setRoles
 from plone.app.testing import login
 from plone.app.testing import logout
 
-from plone.registry.interfaces import IRegistry
-
-from Products.CMFCore.utils import getToolByName
-
 from collective.newsflash.interfaces import INewsFlashLayer
 from collective.newsflash.browser.newsflash_viewlet import NewsFlash_Viewlet
-from collective.newsflash.controlpanel import INewsFlashSettings
 from collective.newsflash.testing import INTEGRATION_TESTING
 
 
@@ -35,9 +28,6 @@ class BrowserTest(unittest.TestCase):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
         directlyProvides(self.request, INewsFlashLayer)
-
-        registry = getUtility(IRegistry)
-
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
 
@@ -84,6 +74,3 @@ class BrowserTest(unittest.TestCase):
                           getMultiAdapter,
                           (self.portal, self.request),
                           name='manage-newsflashes')
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)

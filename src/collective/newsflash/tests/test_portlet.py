@@ -17,6 +17,7 @@ from collective.newsflash.portlet import newsportlet
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 
+
 class PortletTest(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
@@ -81,7 +82,6 @@ class PortletTest(unittest.TestCase):
         renderer = getMultiAdapter(
             (context, request, view, manager, assignment), IPortletRenderer)
         self.failUnless(isinstance(renderer, newsportlet.Renderer))
-
 
 
 class RenderTest(unittest.TestCase):
