@@ -5,4 +5,12 @@
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++collective.newsflash.javascript/newsflash.js" inline="False"/>
 
+ <javascript authenticated="" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True" expression="context/@@newsflash_api/hasItems | False"
+    id="++resource++collective.newsflash.javascript/jquery.ticker.js" inline="False"/>
+
+ <javascript authenticated="" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True" expression="context/@@newsflash_api/hasItems | False"
+    id="newsflash_viewlet.js" inline="False"/>
+
 </object>

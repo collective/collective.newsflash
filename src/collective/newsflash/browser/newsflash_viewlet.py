@@ -79,10 +79,3 @@ class NewsFlash_Viewlet_JS(grok.View):
     grok.name('newsflash_viewlet.js')
     grok.require('zope2.View')
 
-
-class HtmlLinks_Viewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.layer(INewsFlashLayer)
-    grok.name('collective.newsflash.links')
-    grok.viewletmanager(IHtmlHeadLinks)
-    grok.require('zope2.View')
