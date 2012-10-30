@@ -8,7 +8,6 @@ from zope.interface import Interface
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.viewlets.interfaces import IAboveContent
-from plone.app.layout.viewlets.interfaces import IHtmlHeadLinks
 from plone.registry.interfaces import IRegistry
 
 from collective.newsflash.controlpanel import INewsFlashSettings
@@ -69,10 +68,10 @@ class NewsFlash_API(grok.View):
     def can_edit(self):
         portal_membership = getToolByName(self.context, 'portal_membership')
         return portal_membership.checkPermission('Modify portal content', self.context)
-    
+
     def enabled(self):
         return self.hasItems() or self.can_edit()
-    
+
     def dumps(self, json_var=None, sort_keys=True, indent=0):
         """ """
         if json_var is None:
@@ -85,4 +84,3 @@ class NewsFlash_Viewlet_JS(grok.View):
     grok.layer(INewsFlashLayer)
     grok.name('newsflash_viewlet.js')
     grok.require('zope2.View')
-
