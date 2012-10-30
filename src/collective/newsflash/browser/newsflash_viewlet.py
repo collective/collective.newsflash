@@ -66,6 +66,13 @@ class NewsFlash_API(grok.View):
         else:
             return False
 
+    def can_edit(self):
+        portal_membership = getToolByName(self.context, 'portal_membership')
+        return portal_membership.checkPermission('Modify portal content', self.context)
+    
+    def enabled(self):
+        return self.hasItems() or self.can_edit()
+    
     def dumps(self, json_var=None, sort_keys=True, indent=0):
         """ """
         if json_var is None:
@@ -79,10 +86,3 @@ class NewsFlash_Viewlet_JS(grok.View):
     grok.name('newsflash_viewlet.js')
     grok.require('zope2.View')
 
-
-class HtmlLinks_Viewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.layer(INewsFlashLayer)
-    grok.name('collective.newsflash.links')
-    grok.viewletmanager(IHtmlHeadLinks)
-    grok.require('zope2.View')

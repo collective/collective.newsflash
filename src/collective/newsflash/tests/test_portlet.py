@@ -96,7 +96,6 @@ class PortletTest(unittest.TestCase):
         mapping = getMultiAdapter((self.portal, manager), IPortletAssignmentMapping)
         self.failIf('newsflash' in [id for id, assignment in mapping.items()])
 
-
 class RenderTest(unittest.TestCase):
 
     layer = INTEGRATION_TESTING

@@ -1,5 +1,5 @@
-<tal:newsflash tal:define="has_items context/@@newsflash_api/hasItems | False;
-                           can_edit python:context.portal_membership.checkPermission('Modify portal content', context);">
+<tal:newsflash tal:define="has_items context/@@newsflash_api/hasItems | python:False;
+                           can_edit context/@@newsflash_api/can_edit | python:False;">
 <div id="ticker-wrapper" class="no-js" tal:condition="has_items">
     <ul id="js-news" class="js-hidden" tal:define="items context/@@newsflash_api/getItems">
         <li class="ticker-item" tal:repeat="item items">

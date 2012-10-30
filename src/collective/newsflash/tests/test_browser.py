@@ -28,7 +28,6 @@ class BrowserTest(unittest.TestCase):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
         directlyProvides(self.request, INewsFlashLayer)
-
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
 
