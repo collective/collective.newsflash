@@ -1,7 +1,4 @@
 import unittest2 as unittest
-from Products.Five import zcml
-from Products.Five import fiveconfigure
-from Testing import ZopeTestCase as ztc
 
 from collective.newsflash.testing import INTEGRATION_TESTING
 
@@ -20,6 +17,7 @@ from collective.newsflash.portlet import newsportlet
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
+
 
 class PortletTest(unittest.TestCase):
 
