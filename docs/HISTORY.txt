@@ -11,6 +11,8 @@ Because you have to know where your towel is.
 - Import getSite from zope.component to avoid dependency on
   zope.app.component. [hvelarde]
 
+- moving static resources to cssregistry/jsregistry, removing unused viewlet [quimera]
+
 
 1.0 (2012-09-24)
 ^^^^^^^^^^^^^^^^^^^
