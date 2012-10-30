@@ -74,3 +74,7 @@ class BrowserTest(unittest.TestCase):
                           getMultiAdapter,
                           (self.portal, self.request),
                           name='manage-newsflashes')
+
+
+def test_suite():
+    return unittest.defaultTestLoader.loadTestsFromName(__name__)

@@ -148,3 +148,11 @@
 .right #ticker-controls {
     padding-right: 6px;
 }
+#manage-newsflashes {
+    float: right;
+	height: 32px;
+	background-color: #fff;
+}
+#add-newsflashes {
+	text-decoration: underline !important;
+}

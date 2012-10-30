@@ -18,21 +18,21 @@ def setup_product():
     # Load the ZCML configuration for this package and its dependencies
 
     fiveconfigure.debug_mode = True
-    import collective.newsflash.newsflash
-    zcml.load_config('configure.zcml', collective.newsflash.newsflash)
+    import collective.newsflash
+    zcml.load_config('configure.zcml', collective.newsflash)
     fiveconfigure.debug_mode = False
 
     # We need to tell the testing framework that these products
     # should be available. This can't happen until after we have loaded
     # the ZCML.
 
-    ztc.installPackage('collective.newsflash.newsflash')
+    ztc.installPackage('collective.newsflash')
 
 # The order here is important: We first call the deferred function and then
 # let PloneTestCase install it during Plone site setup
 
 setup_product()
-ptc.setupPloneSite(products=['collective.newsflash.newsflash'])
+ptc.setupPloneSite(products=['collective.newsflash'])
 
 
 class TestCase(ptc.PloneTestCase):

@@ -1,9 +1,42 @@
-<tal:newsflash tal:define="has_items context/@@newsflash_api/hasItems | False">
+<tal:newsflash tal:define="has_items context/@@newsflash_api/hasItems | python:False;
+                           can_edit context/@@newsflash_api/can_edit | python:False;">
 <div id="ticker-wrapper" class="no-js" tal:condition="has_items">
     <ul id="js-news" class="js-hidden" tal:define="items context/@@newsflash_api/getItems">
         <li class="ticker-item" tal:repeat="item items">
             <span tal:content="item">Item Title</span>
         </li>
     </ul>
+    <a href="@@manage-newsflashes"
+       id="manage-newsflashes"
+       class="manage-newsflashes"
+       name="manage-newsflashes"
+       tal:condition="python:context.portal_membership.checkPermission('Modify portal content', context)">
+        <img height="16" width="16" 
+        	 src="pencil_icon.png" />
+    </a>
+</div>
+
+<div id="ticker-wrapper" class="no-js"
+     tal:condition="python:can_edit and not has_items">
+    <ul id="js-news" class="js-hidden">
+        <li class="ticker-item">
+            <span>You have no newsflash registered.</span>
+		    <a href="@@manage-newsflashes"
+		       id="add-newsflashes"
+		       class="manage-newsflashes"
+		       name="add-newsflashes"
+		       tal:condition="can_edit">
+		    	Click here to add one.
+		    </a>
+        </li>
+    </ul>
+    <a href="@@manage-newsflashes"
+       id="manage-newsflashes"
+       class="manage-newsflashes"
+       name="manage-newsflashes"
+       tal:condition="can_edit">
+        <img height="16" width="16" 
+        	 src="pencil_icon.png" />
+    </a>
 </div>
 </tal:newsflash>

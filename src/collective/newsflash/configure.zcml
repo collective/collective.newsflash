@@ -38,6 +38,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="remove-portlet"
+        title="collective.newsflash remove-portlet"
+        directory="profiles/remove-portlet"
+        description="Profile for remove the collective.newsflash portlet."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
     <browser:page
         name="newsflash-settings"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"

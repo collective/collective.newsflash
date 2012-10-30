@@ -12,13 +12,12 @@ News ticker inspired by the one on the `BBC News`_ website.
 Don't Panic
 -----------
 
-After installing the product, you should get a portlet on the left side of
-your site, with a "Manage News Flashes" link. If you want, you can go to
-``@@manage-portlets``, remove it and add it somewhere else.
+After installing the product, you should get a viewlet at plone.abovecontent manager,
+with a link to manage flashes.
 
-Clicking this "Manage News Flashes" link, you should get a view for adding,
-modifying or removing news flashes, in an overlay, if your browser supports
-Javascript.
+Clicking the " Click here to add one." link, or the pencil at the right, 
+you should get a view for adding, modifying or removing news flashes,
+in an overlay, if your browser supports Javascript.
 
 After clicking "Save", and reloading your site, you should get the news
 flashes rolling over the top section.

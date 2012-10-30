@@ -10,9 +10,13 @@ ${NEWSFLASH} =  Extra! Extra! Read all about it The Pinball Wizard in a miracle 
 
 *** Test cases ***
 
-Test Portlet
+Test Portlet Removed
     Goto homepage
-    Page Should Contain  Manage News Flashes
+    Page Should Not Contain  Manage News Flashes
+
+Test New UI
+    Goto homepage
+    Page Should Contain  You have no newsflash registered
 
 Test Add News Flash
     Goto Homepage
@@ -47,4 +51,4 @@ Remove News Flash
     Click Button  Remove selected
     Wait Until Keyword Succeeds  1  5  Page Should Not Contain Button  Remove selected
     Click Button  Save
-    Wait Until Keyword Succeeds  1  5  Page Should Not Contain  Latest
+    Wait Until Keyword Succeeds  1  5  Page Should Not Contain  Extra! Extra!

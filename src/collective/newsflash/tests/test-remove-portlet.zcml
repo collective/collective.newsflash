@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.newsflash">
+
+    <genericsetup:registerProfile
+        name="test-remove-portlet"
+        title="collective.newsflash test-remove-portlet"
+        directory="profiles/test-remove-portlet"
+        description="Profile for test the collective.newsflash remove-portlet profile."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>
