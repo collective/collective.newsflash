@@ -11,6 +11,7 @@ Because you have to know where your towel is.
 - Import getSite from zope.component to avoid dependency on
   zope.app.component. [hvelarde]
 
+- Remove portlet in favor of a new UI. [jpgimenez]
 
 1.0 (2012-09-24)
 ^^^^^^^^^^^^^^^^^^^
