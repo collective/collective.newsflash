@@ -10,10 +10,18 @@ from plone.browserlayer.utils import registered_layers
 from collective.newsflash.config import PROJECTNAME
 from collective.newsflash.testing import INTEGRATION_TESTING
 
-JS = '++resource++collective.newsflash.javascript/newsflash.js'
+JS = [
+    '++resource++collective.newsflash.javascript/newsflash.js',
+    '++resource++collective.newsflash.javascript/jquery.ticker.js',
+    'newsflash_viewlet.js',
+    ]
+
+CSS = [
+    '++resource++collective.newsflash.style/ticker-style.css',
+    ]
 
 
-class InstallTest(unittest.TestCase):
+class InstallTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
@@ -36,12 +44,17 @@ class InstallTest(unittest.TestCase):
                         'browser layer not installed')
 
     def test_jsregistry(self):
-        portal_javascripts = self.portal.portal_javascripts
-        self.assertTrue(JS in portal_javascripts.getResourceIds(),
-                        '%s not installed' % JS)
+        resource_ids = self.portal.portal_javascripts.getResourceIds()
+        for id in JS:
+            self.assertTrue(id in resource_ids, '%s not installed' % id)
+
+    def test_cssregistry(self):
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertTrue(id in resource_ids, '%s not installed' % id)
 
 
-class UninstallTest(unittest.TestCase):
+class UninstallTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
@@ -60,10 +73,11 @@ class UninstallTest(unittest.TestCase):
                          'browser layer not removed')
 
     def test_jsregistry_removed(self):
-        portal_javascripts = self.portal.portal_javascripts
-        self.assertFalse(JS in portal_javascripts.getResourceIds(),
-                         '%s not removed' % JS)
+        resource_ids = self.portal.portal_javascripts.getResourceIds()
+        for id in JS:
+            self.assertTrue(id not in resource_ids, '%s not removed' % id)
 
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
+    def test_cssregistry_removed(self):
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertTrue(id not in resource_ids, '%s not removed' % id)

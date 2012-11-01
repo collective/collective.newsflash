@@ -34,7 +34,7 @@ class BrowserTest(unittest.TestCase):
     def test_newsflash_api_view(self):
         view = getMultiAdapter((self.portal, self.request),
                                name='newsflash_api')
-        self.failUnless(view())
+        self.assertTrue(view())
         self.assertEquals(view.settings.controls, False)
         speed = "%d.1" % view.settings.speed
         self.assertEquals(speed, "0.1")
@@ -44,7 +44,7 @@ class BrowserTest(unittest.TestCase):
     def test_newsflash_js_view(self):
         view = getMultiAdapter((self.portal, self.request),
                                name='newsflash_viewlet.js')
-        self.failUnless(view())
+        self.assertTrue(view())
         default_js = u'jq(document).ready(function() {' + \
                      u'\n        var config_data = {' + \
                      u'\n"controls": false, ' + \
@@ -65,7 +65,7 @@ class BrowserTest(unittest.TestCase):
                                      self.request,
                                      view,
                                      IAboveContent)
-        self.failUnless(viewlet.render())
+        self.assertTrue(viewlet.render())
 
     def test_newsflash_edit_not_accessible_by_anonymous(self):
         logout()
@@ -74,7 +74,3 @@ class BrowserTest(unittest.TestCase):
                           getMultiAdapter,
                           (self.portal, self.request),
                           name='manage-newsflashes')
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
