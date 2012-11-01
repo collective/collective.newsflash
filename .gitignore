@@ -8,11 +8,6 @@
 .pydevproject
 .settings/
 local.cfg
-library-settings.txt
-log.html
-output.xml
-report.html
-selenium*
 bin/
 coverage/
 develop-eggs/
@@ -20,4 +15,3 @@ downloads/
 eggs/
 parts/
 var/
-src/collective.*
