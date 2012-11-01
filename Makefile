@@ -5,7 +5,8 @@ pep8_ignores = E501
 options = -N -q -t 3
 
 prerequisites:
-	sudo apt-get install -qq pep8 pyflakes i18ndude
+	sudo apt-get install -qq pep8 pyflakes
+	pip install i18ndude --use-mirrors
 	mkdir -p buildout-cache/downloads
 
 install: prerequisites
