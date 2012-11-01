@@ -5,7 +5,7 @@ pep8_ignores = E501
 options = -N -q -t 3
 
 prerequisites:
-	sudo apt-get install -qq pep8 pyflakes
+	sudo apt-get install -qq pep8 pyflakes i18ndude
 	mkdir -p buildout-cache/downloads
 
 install: prerequisites
@@ -16,3 +16,4 @@ tests:
 	bin/test
 	pyflakes src/
 	pep8 --ignore=$(pep8_ignores) src/
+	i18ndude find-untranslated -n src/
