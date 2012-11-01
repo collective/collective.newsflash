@@ -12,7 +12,7 @@ install: prerequisites
 	python bootstrap.py -c travis.cfg
 	bin/buildout -c travis.cfg $(options)
 
-tests: i18ndude
+tests:
 	bin/test
 	pyflakes src/
 	pep8 --ignore=$(pep8_ignores) src/
