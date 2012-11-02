@@ -16,4 +16,3 @@ tests:
 	bin/test
 	pyflakes src/
 	pep8 --ignore=$(pep8_ignores) src/
-	bin/i18ndude find-untranslated -n src/
