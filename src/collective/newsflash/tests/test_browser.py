@@ -56,7 +56,7 @@ class BrowserTest(unittest.TestCase):
                      u'\n}' + \
                      u'\n        jq("#js-news").ticker(config_data);' + \
                      u'\n        });\n'
-        self.assertEquals(default_js, view())
+        self.assertEquals(default_js.strip(' \t\n\r'), view().strip(' \t\n\r'))
 
     def test_newsflash_viewlet(self):
         view = getMultiAdapter((self.portal, self.request),
