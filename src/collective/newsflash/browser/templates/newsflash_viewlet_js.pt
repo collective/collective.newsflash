@@ -1,4 +1,6 @@
+<tal:block>
 jq(document).ready(function() {
-        <tal:define content="string:var config_data = ${context/newsflash_api}" />
+        <tal:block content="string:var config_data = ${context/newsflash_api}"></tal:block>
         jq("#js-news").ticker(config_data);
         });
+</tal:block>

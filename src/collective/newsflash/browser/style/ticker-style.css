@@ -1,7 +1,7 @@
 /* Ticker Styling */
 #ticker-wrapper.has-js {
-	margin: 20px 0px 20px 0px;
-	padding: 0px;
+	margin: 20px 0 20px 0;
+	padding: 0 5px 0 0;
 	height: 32px;
 	display: block;
     /*
@@ -70,7 +70,7 @@
 	display: block;
 }
 #ticker-controls {
-	padding: 8px 0px 0px 0px;
+	padding: 8px 5px 0px 0px;
 	list-style-type: none;
 	float: right;
 }
@@ -148,10 +148,15 @@
 .right #ticker-controls {
     padding-right: 6px;
 }
-#manage-newsflashes {
+#edit-newsflashes {
     float: right;
-	height: 32px;
-	background-color: #fff;
+	height: 20px;
+	width: 20px;
+	margin-top: 6px;
+	background: transparent url("edit-icon.png") scroll no-repeat 0 0;
+}
+#edit-newsflashes span {
+	display: none;
 }
 #add-newsflashes {
 	text-decoration: underline !important;
