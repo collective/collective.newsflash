@@ -1,15 +1,11 @@
 # -*- coding:utf-8 -*-
-
-from five import grok
-
+from zope.interface import implements
 from Products.CMFPlone.interfaces import INonInstallable
 
 
-class HiddenProfiles(grok.GlobalUtility):
+class HiddenProfiles(object):
 
-    grok.implements(INonInstallable)
-    grok.provides(INonInstallable)
-    grok.name('collective.newsflash')
+    implements(INonInstallable)
 
     def getNonInstallableProfiles(self):
         profiles = ['collective.newsflash:uninstall', ]

@@ -16,7 +16,6 @@
        <span i18n:translate="">Edit</span>
     </a>
 </div>
-
 <div id="ticker-wrapper" class="no-js"
      tal:condition="python:can_edit and not has_items">
     <ul id="js-news" class="js-hidden">
