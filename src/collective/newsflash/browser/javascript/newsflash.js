@@ -1,6 +1,6 @@
-window.onload = function() {
-    if ($('a#manage-newsflashes')[0] !== undefined){
-        $('a#manage-newsflashes').prepOverlay(
+(function($){  
+    if ($('#edit-newsflashes')[0] !== undefined){
+        $('#edit-newsflashes').prepOverlay(
             {
                 subtype: 'ajax',
                 formselector: '#form',
@@ -8,4 +8,4 @@ window.onload = function() {
             }
         );
     }
-}
+})(jQuery);
