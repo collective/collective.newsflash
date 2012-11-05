@@ -6,6 +6,8 @@ Because you have to know where your towel is.
 1.1 (unreleased)
 ^^^^^^^^^^^^^^^^
 
+- Removed grok dependency. [flecox]
+
 - Tested Plone 4.3 compatibility. [hvelarde]
 
 - Import getSite from zope.component to avoid dependency on

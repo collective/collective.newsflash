@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 import json
 
-from five import grok
+from Products.Five import BrowserView
+
 from zope.component import queryUtility
 from zope.interface import Interface
+
+from zope.annotation.interfaces import IAnnotations
+from zope.publisher.publish import mapply
 
 from Products.CMFCore.utils import getToolByName
 
@@ -13,28 +17,20 @@ from plone.registry.interfaces import IRegistry
 from collective.newsflash.controlpanel import INewsFlashSettings
 from collective.newsflash.interfaces import INewsFlashLayer
 
-from zope.annotation.interfaces import IAnnotations
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-grok.templatedir("templates")
-
-
-class NewsFlash_Viewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.layer(INewsFlashLayer)
-    grok.name('collective.newsflash.viewlet')
-    grok.order(0)
-    grok.require('zope2.View')
-    grok.viewletmanager(IAboveContent)
+from plone.app.layout.viewlets.common import ViewletBase
 
 
-class NewsFlash_API(grok.View):
-    grok.context(Interface)
-    grok.layer(INewsFlashLayer)
-    grok.require('zope2.View')
+class NewsFlash_Viewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/newsflash_viewlet.pt')
+
+
+class NewsFlash_API(BrowserView):
 
     def __call__(self):
-        self.response.setHeader('Content-Type', 'text/plain')
-        return super(NewsFlash_API, self).__call__()
+        self.request.response.setHeader('Content-Type', 'text/plain')
+        return mapply(self.render, (), self.request)
 
     def __init__(self, *args, **kwargs):
         super(NewsFlash_API, self).__init__(*args, **kwargs)
@@ -79,8 +75,7 @@ class NewsFlash_API(grok.View):
         return json.dumps(json_var, sort_keys=sort_keys, indent=indent)
 
 
-class NewsFlash_Viewlet_JS(grok.View):
-    grok.context(Interface)
-    grok.layer(INewsFlashLayer)
-    grok.name('newsflash_viewlet.js')
-    grok.require('zope2.View')
+class NewsFlash_Viewlet_JS(BrowserView):
+    pass
+
+
