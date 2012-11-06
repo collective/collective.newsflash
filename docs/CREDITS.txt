@@ -7,7 +7,6 @@ of the following people:
 - Franco Pellegrini
 - Héctor Velarde
 - Silvestre Huens
-- Gonzalo Almeida
 
 Development sponsored by Open Multimedia.
 

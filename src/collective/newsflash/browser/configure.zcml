@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.newsflash">
 
     <include package="plone.app.z3cform" />
@@ -15,34 +16,7 @@
       directory="style"
       />
 
-  
-  <browser:viewlet
-      name="collective.newsflash.viewlet"
-      for="*"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-      template="templates/newsflash_viewlet.pt"
-      layer="collective.newsflash.interfaces.INewsFlashLayer"
-      class=".newsflash_viewlet.NewsFlash_Viewlet"
-      permission="zope.Public"
-      />
-  
-      <browser:page
-         for="*"
-         name="newsflash_viewlet.js"
-         class=".newsflash_viewlet.NewsFlash_Viewlet_JS"
-         layer="collective.newsflash.interfaces.INewsFlashLayer"
-         permission="zope2.View"
-         template="templates/newsflash_viewlet_js.pt"
-         />
-      
-         <browser:page
-            for="*"
-            name="newsflash_api"
-            class=".newsflash_viewlet.NewsFlash_API"
-            layer="collective.newsflash.interfaces.INewsFlashLayer"
-            permission="zope2.View"
-            />
-
+  <grok:grok package=".newsflash_viewlet" />
 
     <browser:page
         for="*"
