@@ -1,4 +1,4 @@
-(function($){  
+jQuery(document).ready(function($) {  
     if ($('#edit-newsflashes')[0] !== undefined){
         $('#edit-newsflashes').prepOverlay(
             {
@@ -8,4 +8,4 @@
             }
         );
     }
-})(jQuery);
+});
