@@ -33,7 +33,7 @@ Start Browser and Log In
     Goto Homepage
 
 Click Manage News Flashes
-    Click Element  css=a#manage-newsflashes.link-overlay
+    Click Element  css=.manage-newsflashes.link-overlay
     Wait Until Page Contains Element  css=div.pb-ajax div#content-core
 
 Add News Flash
