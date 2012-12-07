@@ -61,10 +61,8 @@ class BrowserTest(unittest.TestCase):
     def test_newsflash_viewlet(self):
         view = getMultiAdapter((self.portal, self.request),
                                name='view')
-        viewlet = NewsFlash_Viewlet(self.portal,
-                                     self.request,
-                                     view,
-                                     IAboveContent)
+        viewlet = NewsFlash_Viewlet(
+            self.portal, self.request, view, IAboveContent)
         self.assertTrue(viewlet.render())
 
     def test_newsflash_edit_not_accessible_by_anonymous(self):

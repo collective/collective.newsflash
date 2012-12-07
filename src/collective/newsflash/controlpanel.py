@@ -27,45 +27,47 @@ class INewsFlashSettings(Interface):
     """
 
     titleText = schema.TextLine(
-        title=_(u'Title text'),
-        description=_(u'To remove the title set this to an empty '
-                       'string.'),
+        title=_(u"Title text"),
+        description=_(
+            u"To remove the title set this to an empty string."),
         required=True,
         defaultFactory=default_title_text,
         missing_value=u"",
-        )
+    )
 
     speed = schema.Float(
-        title=_(u'Display speed'),
-        description=_(u'The speed at which the news flashes appear on the '
-                       'screen. Values go from 0.0 - 1.0.'),
+        title=_(u"Display speed"),
+        description=_(
+            u"The speed at which the news flashes appear on the screen. "
+            u"Values go from 0.0 - 1.0."),
         required=True,
         min=0.0,
         max=1.0,
         default=0.1,
-        )
+    )
 
     pauseOnItems = schema.Int(
-        title=_(u'Time items appear on screen'),
-        description=_(u'The time, in milliseconds (ms), that each news '
-                       'flash item appears on the screen.'),
+        title=_(u"Time items appear on screen"),
+        description=_(
+            u"The time, in milliseconds (ms), that each news flash item "
+            u"appears on the screen."),
         required=True,
         min=0,
         default=2000,
-        )
+    )
 
     controls = schema.Bool(
-        title=_(u'Controls'),
-        description=_(u'Whether or not to show the ticker controls.'),
+        title=_(u"Controls"),
+        description=_(u"Whether or not to show the ticker controls."),
         default=config.CONTROLS,
-        )
+    )
 
 
 class NewsFlashSettingsEditForm(controlpanel.RegistryEditForm):
     schema = INewsFlashSettings
-    label = _(u'News Flash Settings')
-    description = _(u'Here you can modify the settings for '
-                     'collective.newsflash.')
+    label = _(u"News Flash Settings")
+    description = _(
+        u"Here you can modify the settings for collective.newsflash.")
 
     def updateFields(self):
         super(NewsFlashSettingsEditForm, self).updateFields()

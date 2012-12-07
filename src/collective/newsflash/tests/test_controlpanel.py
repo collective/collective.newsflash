@@ -87,11 +87,13 @@ class RegistryTestCase(unittest.TestCase):
     def test_records_removed(self):
         qi = self.portal['portal_quickinstaller']
         qi.uninstallProducts(products=[config.PROJECTNAME])
+
         records = [
             BASE_REGISTRY % 'controls',
             BASE_REGISTRY % 'pauseOnItems',
             BASE_REGISTRY % 'speed',
             BASE_REGISTRY % 'titleText',
-            ]
+        ]
+
         for r in records:
-            self.assertFalse(r in self.registry)
+            self.assertNotIn(r, self.registry)
