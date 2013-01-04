@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {  
     if ($('#edit-newsflashes')[0] !== undefined){
-        $('#edit-newsflashes').prepOverlay(
+        $('.manage-newsflashes').prepOverlay(
             {
                 subtype: 'ajax',
                 formselector: '#form',

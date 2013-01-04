@@ -17,19 +17,19 @@
     </a>
 </div>
 
-<div id="ticker-wrapper" class="no-js"
+<div id="ticker-wrapper" class="no-js empty-ticker"
      tal:condition="python:can_edit and not has_items">
     <ul id="js-news" class="js-hidden">
         <li class="ticker-item">
             <span i18n:translate="">You have no newsflash registered.</span>
-		    <a href="@@manage-newsflashes"
-		       id="add-newsflashes"
-		       class="manage-newsflashes"
-		       name="add-newsflashes"
-		       tal:condition="can_edit"
-           i18n:translate="">
-		    	Click here to add one.
-		    </a>
+    		    <a href="@@manage-newsflashes"
+    		       id="add-newsflashes"
+    		       class="manage-newsflashes"
+    		       name="add-newsflashes"
+    		       tal:condition="can_edit"
+               i18n:translate="">
+    		    	Click here to add one.
+    		    </a>
         </li>
     </ul>
     <a href="@@manage-newsflashes"

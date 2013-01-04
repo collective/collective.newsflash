@@ -45,7 +45,7 @@ class BrowserTest(unittest.TestCase):
         view = getMultiAdapter((self.portal, self.request),
                                name='newsflash_viewlet.js')
         self.assertTrue(view())
-        default_js = u'jq(document).ready(function() {' + \
+        default_js = u'$(document).ready(function() {' + \
                      u'\n        var config_data = {' + \
                      u'\n"controls": false, ' + \
                      u'\n"feedType": "xml", ' + \
@@ -54,7 +54,10 @@ class BrowserTest(unittest.TestCase):
                      u'\n"speed": 0.1, ' + \
                      u'\n"titleText": "Latest"' + \
                      u'\n}' + \
-                     u'\n        jq("#js-news").ticker(config_data);' + \
+                     u'\n        if ($(".empty-ticker")[0] !== undefined) {' + \
+                     u'\n            config_data["paused"] = true;' + \
+                     u'\n        }' + \
+                     u'\n        $("#js-news").ticker(config_data);' + \
                      u'\n        });\n'
         self.assertEquals(default_js.strip(' \t\n\r'), view().strip(' \t\n\r'))
 
