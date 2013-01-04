@@ -14,11 +14,11 @@ JS = [
     '++resource++collective.newsflash.javascript/newsflash.js',
     '++resource++collective.newsflash.javascript/jquery.ticker.js',
     'newsflash_viewlet.js',
-    ]
+]
 
 CSS = [
     '++resource++collective.newsflash.style/ticker-style.css',
-    ]
+]
 
 
 class InstallTestCase(unittest.TestCase):
