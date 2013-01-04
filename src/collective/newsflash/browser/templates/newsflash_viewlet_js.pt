@@ -1,8 +1,8 @@
 <tal:block>
 $(document).ready(function() {
         <tal:block content="string:var config_data = ${context/newsflash_api}"></tal:block>
-        if ($('.empty-ticker')[0] !== undefined) {
-            config_data['paused'] = true;
+        if ($(".empty-ticker")[0] !== undefined) {
+            config_data["paused"] = true;
         }
         $("#js-news").ticker(config_data);
         });
