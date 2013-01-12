@@ -21,6 +21,10 @@ Because you have to know where your towel is.
 
 - Fixing newsflash edit workflow, new icon and style [quimera]
 
+- Added new version of jquery ticker [quimera]
+
+- Integration with simple rich text widget [quimera]
+
 1.0 (2012-09-24)
 ^^^^^^^^^^^^^^^^
 
