@@ -21,14 +21,13 @@ from collective.newsflash.testing import INTEGRATION_TESTING
 BASE_REGISTRY = 'collective.newsflash.controlpanel.INewsFlashSettings.%s'
 
 
-class RegistryTest(unittest.TestCase):
+class ControlPanelTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        # set up settings registry
         self.registry = Registry()
         self.registry.registerInterface(INewsFlashSettings)
 
@@ -36,7 +35,7 @@ class RegistryTest(unittest.TestCase):
         view = getMultiAdapter((self.portal, self.portal.REQUEST),
                                name='newsflash-settings')
         view = view.__of__(self.portal)
-        self.failUnless(view())
+        self.assertTrue(view())
 
     def test_controlpanel_view_is_protected(self):
         from AccessControl import Unauthorized
@@ -48,34 +47,10 @@ class RegistryTest(unittest.TestCase):
     def test_action_in_controlpanel(self):
         cp = getToolByName(self.portal, 'portal_controlpanel')
         actions = [a.getAction(self)['id'] for a in cp.listActions()]
-        self.failUnless('newsflash' in actions)
-
-    def test_controls_record(self):
-        record_controls = self.registry.records[
-            BASE_REGISTRY % 'controls']
-        self.failUnless('controls' in INewsFlashSettings)
-        self.assertEquals(record_controls.value, config.CONTROLS)
-
-    def test_pauseOnItems_record(self):
-        record_pauseOnItems = self.registry.records[
-            BASE_REGISTRY % 'pauseOnItems']
-        self.failUnless('pauseOnItems' in INewsFlashSettings)
-        self.assertEquals(record_pauseOnItems.value, 2000)
-
-    def test_speed_record(self):
-        record_speed = self.registry.records[
-            BASE_REGISTRY % 'speed']
-        self.failUnless('speed' in INewsFlashSettings)
-        self.assertEquals(record_speed.value, 0.1)
-
-    def test_titleText_record(self):
-        record_titleText = self.registry.records[
-            BASE_REGISTRY % 'titleText']
-        self.failUnless('titleText' in INewsFlashSettings)
-        self.assertEquals(record_titleText.value, config.TITLE_TEXT)
+        self.assertTrue('newsflash' in actions)
 
 
-class RegistryUninstallTest(unittest.TestCase):
+class RegistryTestCase(unittest.TestCase):
     """Ensure registry is properly uninstalled"""
 
     layer = INTEGRATION_TESTING
@@ -84,19 +59,41 @@ class RegistryUninstallTest(unittest.TestCase):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.registry = getUtility(IRegistry)
-        qi = getattr(self.portal, 'portal_quickinstaller')
-        qi.uninstallProducts(products=[config.PROJECTNAME])
+
+    def test_controls_record(self):
+        record_controls = self.registry.records[
+            BASE_REGISTRY % 'controls']
+        self.assertTrue('controls' in INewsFlashSettings)
+        self.assertEquals(record_controls.value, config.CONTROLS)
+
+    def test_pauseOnItems_record(self):
+        record_pauseOnItems = self.registry.records[
+            BASE_REGISTRY % 'pauseOnItems']
+        self.assertTrue('pauseOnItems' in INewsFlashSettings)
+        self.assertEquals(record_pauseOnItems.value, 2000)
+
+    def test_speed_record(self):
+        record_speed = self.registry.records[
+            BASE_REGISTRY % 'speed']
+        self.assertTrue('speed' in INewsFlashSettings)
+        self.assertEquals(record_speed.value, 0.1)
+
+    def test_titleText_record(self):
+        record_titleText = self.registry.records[
+            BASE_REGISTRY % 'titleText']
+        self.assertTrue('titleText' in INewsFlashSettings)
+        self.assertEquals(record_titleText.value, config.TITLE_TEXT)
 
     def test_records_removed(self):
+        qi = self.portal['portal_quickinstaller']
+        qi.uninstallProducts(products=[config.PROJECTNAME])
+
         records = [
             BASE_REGISTRY % 'controls',
             BASE_REGISTRY % 'pauseOnItems',
             BASE_REGISTRY % 'speed',
             BASE_REGISTRY % 'titleText',
-            ]
+        ]
+
         for r in records:
-            self.assertFalse(r in self.registry)
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
+            self.assertNotIn(r, self.registry)

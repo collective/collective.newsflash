@@ -1,38 +1,39 @@
 *** Settings ***
 
-Resource  plone.txt
-
-Suite Setup  Setup
+Resource  keywords.txt
+Suite Setup  Start Browser and Log In
+Suite Teardown  Close Browser
 
 *** Variables ***
 
+${SITE_OWNER_NAME} =  admin
+${SITE_OWNER_PASSWORD} =  secret
 ${NEWSFLASH} =  Extra! Extra! Read all about it The Pinball Wizard in a miracle cure!
 
 *** Test cases ***
 
-Test Portlet
-    Goto homepage
-    Page Should Contain  Manage News Flashes
+Test News Flash Manager
+    Page Should Contain  You have no newsflash registered
 
-Test Add News Flash
-    Goto Homepage
+    # Test Add News Flash
     Click Manage News Flashes
     Add News Flash
     Page Should Contain  ${NEWSFLASH}
 
-Test Remove News Flash
-    Goto Homepage
+    # Test Remove News Flash
     Click Manage News Flashes
     Remove News Flash
     Page Should Not Contain  ${NEWSFLASH}
 
 *** Keywords ***
 
-Setup
-    Log In  admin  admin
+Start Browser and Log In
+    Open Browser  ${PLONE_URL}
+    Log in  ${SITE_OWNER_NAME}  ${SITE_OWNER_PASSWORD}
+    Goto Homepage
 
 Click Manage News Flashes
-    Click Element  css=a#manage-newsflashes.link-overlay
+    Click Element  css=.manage-newsflashes.link-overlay
     Wait Until Page Contains Element  css=div.pb-ajax div#content-core
 
 Add News Flash
@@ -47,4 +48,4 @@ Remove News Flash
     Click Button  Remove selected
     Wait Until Keyword Succeeds  1  5  Page Should Not Contain Button  Remove selected
     Click Button  Save
-    Wait Until Keyword Succeeds  1  5  Page Should Not Contain  Latest
+    Wait Until Keyword Succeeds  1  5  Page Should Not Contain  Extra! Extra!

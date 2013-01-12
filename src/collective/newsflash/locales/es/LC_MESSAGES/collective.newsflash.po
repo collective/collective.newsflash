@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.newsflash\n"
-"POT-Creation-Date: 2012-09-05 19:40+0000\n"
-"PO-Revision-Date: 2012-09-05 16:31-0300\n"
-"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
+"POT-Creation-Date: 2012-11-05 16:18+0000\n"
+"PO-Revision-Date: 2012-11-05 13:20-0300\n"
+"Last-Translator: quimera <quimera@ravvit.net>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:24
+msgid "Click here to add one."
+msgstr "Haz clic aquí para agregar uno."
+
 #: collective/newsflash/controlpanel.py:58
 msgid "Controls"
 msgstr "Controles"
@@ -22,6 +26,10 @@ msgstr "Controles"
 #: collective/newsflash/controlpanel.py:39
 msgid "Display speed"
 msgstr "Velocidad de aparición"
+
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:15
+msgid "Edit"
+msgstr "Editar"
 
 #: collective/newsflash/controlpanel.py:67
 msgid "Here you can modify the settings for collective.newsflash."
@@ -31,12 +39,12 @@ msgstr "Desde aquí puede modificar la configuración de collective.newsflash."
 msgid "Latest"
 msgstr "Lo más reciente"
 
-#: collective/newsflash/browser/newsflash.py:27
+#: collective/newsflash/browser/newsflash.py:29
 #: collective/newsflash/portlet/newsportlet.pt:12
 msgid "Manage News Flashes"
 msgstr "Administrar las noticias de última hora"
 
-#: collective/newsflash/browser/newsflash.py:18
+#: collective/newsflash/browser/newsflash.py:20
 msgid "News Flash"
 msgstr "Noticia de última hora"
 
@@ -45,7 +53,7 @@ msgstr "Noticia de última hora"
 msgid "News Flash Settings"
 msgstr "Configuración de la barra de noticias de última hora"
 
-#: collective/newsflash/browser/newsflash.py:48
+#: collective/newsflash/browser/newsflash.py:52
 msgid "Save"
 msgstr "Guardar"
 
@@ -72,4 +80,12 @@ msgstr "Para remover el título, deje este campo vacío."
 #: collective/newsflash/controlpanel.py:59
 msgid "Whether or not to show the ticker controls."
 msgstr "Define si se muestran o no los controles de la barra de noticias"
+
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:23
+msgid "You have no newsflash registered."
+msgstr "Usted no tiene noticia de última hora registradas."
+
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:9
+msgid "edit"
+msgstr "editar"
 

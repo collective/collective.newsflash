@@ -15,8 +15,14 @@ Because you have to know where your towel is.
   SimpleRichText from collective.z3cform.widgets to allow a basic
   HTML editor for the text [frapell]
 
+- moving static resources to cssregistry/jsregistry, removing unused viewlet [quimera]
+
+- Remove portlet in favor of a new UI. [jpgimenez]
+
+- Fixing newsflash edit workflow, new icon and style [quimera]
+
 1.0 (2012-09-24)
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 - Updated Spanish translation and added Brazilian Portuguese translation.
   [hvelarde]

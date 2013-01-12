@@ -1,4 +1,9 @@
-jq(document).ready(function() {
-        <tal:define content="string:var config_data = ${context/newsflash_api}" />
-        jq("#js-news").ticker(config_data);
+<tal:block>
+$(document).ready(function() {
+        <tal:block content="string:var config_data = ${context/newsflash_api}"></tal:block>
+        if ($(".empty-ticker")[0] !== undefined) {
+            config_data["paused"] = true;
+        }
+        $("#js-news").ticker(config_data);
         });
+</tal:block>

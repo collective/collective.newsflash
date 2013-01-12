@@ -4,7 +4,9 @@ from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
-from grokcore.component import zcml
+
+from plone.testing.z2 import ZSERVER_FIXTURE
+
 
 class Fixture(PloneSandboxLayer):
 
@@ -14,18 +16,18 @@ class Fixture(PloneSandboxLayer):
         # Load ZCML
         import collective.newsflash
         self.loadZCML(package=collective.newsflash)
+        self.loadZCML(package=collective.newsflash.tests, name='test-remove-portlet.zcml')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, 'collective.newsflash:default')
 
-
 FIXTURE = Fixture()
 INTEGRATION_TESTING = IntegrationTesting(
     bases=(FIXTURE,),
     name='collective.newsflash:Integration',
-    )
+)
 FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(FIXTURE,),
+    bases=(FIXTURE, ZSERVER_FIXTURE),
     name='collective.newsflash:Functional',
-    )
+)

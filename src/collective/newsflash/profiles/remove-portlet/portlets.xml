@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<portlets>
+ <assignment
+    remove="True"
+    manager="plone.leftcolumn"
+    category="context"
+    key="/"
+    type="collective.newsflash.newsportlet.NewsPortlet"
+    name="newsflash"
+    />
+</portlets>

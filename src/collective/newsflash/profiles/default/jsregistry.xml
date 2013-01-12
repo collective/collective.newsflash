@@ -2,7 +2,15 @@
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
     
  <javascript authenticated="True" cacheable="True" compression="none"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
+    conditionalcomment="" cookable="True" enabled="True" expression="context/@@newsflash_api/enabled | python:False"
     id="++resource++collective.newsflash.javascript/newsflash.js" inline="False"/>
+
+ <javascript authenticated="" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True" expression="context/@@newsflash_api/enabled | python:False"
+    id="++resource++collective.newsflash.javascript/jquery.ticker.js" inline="False"/>
+
+ <javascript authenticated="" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True" expression="context/@@newsflash_api/enabled | python:False"
+    id="newsflash_viewlet.js" inline="False"/>
 
 </object>

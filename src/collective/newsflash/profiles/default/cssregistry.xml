@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--  
+
+      http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html#registering-a-new-css-file
+
+-->
+<object name="portal_css">  
+
+ <stylesheet title="" bundle="default" cacheable="True" compression="safe" conditionalcomment=""
+    cookable="True" enabled="True" id="++resource++collective.newsflash.style/ticker-style.css"
+    media="screen" rel="stylesheet" rendering="link"/>
+
+</object>

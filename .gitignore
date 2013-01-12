@@ -4,11 +4,10 @@
 *~
 .installed.cfg
 .mr.developer.cfg
-library-settings.txt
-log.html
-output.xml
-report.html
-selenium*
+.project
+.pydevproject
+.settings/
+local.cfg
 bin/
 coverage/
 develop-eggs/
