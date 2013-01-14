@@ -46,7 +46,7 @@ setup(name='collective.newsflash',
         'five.grok>=1.2.0',
         'Products.CMFPlone>=4.1',
         'plone.app.z3cform',
-        'collective.z3cform.widgets',
+        'collective.z3cform.widgets>=1.0b3',
         ],
       extras_require={
         'test': [
