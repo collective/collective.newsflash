@@ -6,7 +6,7 @@
 -->
 <object name="portal_css">  
 
- <stylesheet title="" bundle="default" cacheable="True" compression="safe" conditionalcomment=""
+ <stylesheet title="" cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" id="++resource++collective.newsflash.style/ticker-style.css"
     media="screen" rel="stylesheet" rendering="link"/>
 
