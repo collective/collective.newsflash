@@ -41,11 +41,9 @@ Add News Flash
     Wait Until Page Contains Element  css=div#formfield-form-widgets-newsflash-0
     Input Text  css=textarea#form-widgets-newsflash-0  ${NEWSFLASH}
     Click Button  Save
-    Wait Until Keyword Succeeds  1  5  Page Should Contain  Latest
 
 Remove News Flash
     Select Checkbox  css=input#form-widgets-newsflash-0-remove
     Click Button  Remove selected
     Wait Until Keyword Succeeds  1  5  Page Should Not Contain Button  Remove selected
     Click Button  Save
-    Wait Until Keyword Succeeds  1  5  Page Should Not Contain  Extra! Extra!

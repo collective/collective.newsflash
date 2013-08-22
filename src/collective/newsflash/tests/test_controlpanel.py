@@ -47,7 +47,7 @@ class ControlPanelTestCase(unittest.TestCase):
     def test_action_in_controlpanel(self):
         cp = getToolByName(self.portal, 'portal_controlpanel')
         actions = [a.getAction(self)['id'] for a in cp.listActions()]
-        self.assertTrue('newsflash' in actions)
+        self.assertIn('newsflash', actions)
 
 
 class RegistryTestCase(unittest.TestCase):
@@ -64,27 +64,27 @@ class RegistryTestCase(unittest.TestCase):
         record_controls = self.registry.records[
             BASE_REGISTRY % 'controls']
         self.assertTrue('controls' in INewsFlashSettings)
-        self.assertEquals(record_controls.value, config.CONTROLS)
+        self.assertEqual(record_controls.value, config.CONTROLS)
 
     def test_pauseOnItems_record(self):
         record_pauseOnItems = self.registry.records[
             BASE_REGISTRY % 'pauseOnItems']
         self.assertTrue('pauseOnItems' in INewsFlashSettings)
-        self.assertEquals(record_pauseOnItems.value, 2000)
+        self.assertEqual(record_pauseOnItems.value, 2000)
 
     def test_speed_record(self):
         record_speed = self.registry.records[
             BASE_REGISTRY % 'speed']
         self.assertTrue('speed' in INewsFlashSettings)
-        self.assertEquals(record_speed.value, 0.1)
+        self.assertEqual(record_speed.value, 0.1)
 
     def test_titleText_record(self):
         record_titleText = self.registry.records[
             BASE_REGISTRY % 'titleText']
         self.assertTrue('titleText' in INewsFlashSettings)
-        self.assertEquals(record_titleText.value, config.TITLE_TEXT)
+        self.assertEqual(record_titleText.value, config.TITLE_TEXT)
 
-    def test_records_removed(self):
+    def test_records_removed_on_uninstall(self):
         qi = self.portal['portal_quickinstaller']
         qi.uninstallProducts(products=[config.PROJECTNAME])
 
