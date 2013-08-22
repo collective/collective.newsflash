@@ -40,18 +40,18 @@ class InstallTestCase(unittest.TestCase):
 
     def test_browserlayer(self):
         layers = [l.getName() for l in registered_layers()]
-        self.assertTrue('INewsFlashLayer' in layers,
-                        'browser layer not installed')
+        self.assertIn(
+            'INewsFlashLayer', layers, 'browser layer not installed')
 
     def test_jsregistry(self):
         resource_ids = self.portal.portal_javascripts.getResourceIds()
         for id in JS:
-            self.assertTrue(id in resource_ids, '%s not installed' % id)
+            self.assertIn(id, resource_ids, '%s not installed' % id)
 
     def test_cssregistry(self):
         resource_ids = self.portal.portal_css.getResourceIds()
         for id in CSS:
-            self.assertTrue(id in resource_ids, '%s not installed' % id)
+            self.assertIn(id, resource_ids, '%s not installed' % id)
 
 
 class UninstallTestCase(unittest.TestCase):
@@ -69,15 +69,15 @@ class UninstallTestCase(unittest.TestCase):
 
     def test_browserlayer_removed(self):
         layers = [l.getName() for l in registered_layers()]
-        self.assertFalse('INewsFlashLayer' in layers,
-                         'browser layer not removed')
+        self.assertNotIn(
+            'INewsFlashLayer', layers, 'browser layer not removed')
 
     def test_jsregistry_removed(self):
         resource_ids = self.portal.portal_javascripts.getResourceIds()
         for id in JS:
-            self.assertTrue(id not in resource_ids, '%s not removed' % id)
+            self.assertNotIn(id, resource_ids, '%s not removed' % id)
 
     def test_cssregistry_removed(self):
         resource_ids = self.portal.portal_css.getResourceIds()
         for id in CSS:
-            self.assertTrue(id not in resource_ids, '%s not removed' % id)
+            self.assertNotIn(id, resource_ids, '%s not removed' % id)

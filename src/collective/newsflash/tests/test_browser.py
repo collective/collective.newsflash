@@ -35,11 +35,11 @@ class BrowserTest(unittest.TestCase):
         view = getMultiAdapter((self.portal, self.request),
                                name='newsflash_api')
         self.assertTrue(view())
-        self.assertEquals(view.settings.controls, False)
+        self.assertEqual(view.settings.controls, False)
         speed = "%d.1" % view.settings.speed
-        self.assertEquals(speed, "0.1")
-        self.assertEquals(view.settings.pauseOnItems, 2000)
-        self.assertEquals(view.settings.titleText, u"Latest")
+        self.assertEqual(speed, "0.1")
+        self.assertEqual(view.settings.pauseOnItems, 2000)
+        self.assertEqual(view.settings.titleText, u"Latest")
 
     def test_newsflash_js_view(self):
         view = getMultiAdapter((self.portal, self.request),
@@ -59,7 +59,7 @@ class BrowserTest(unittest.TestCase):
                      u'\n        }' + \
                      u'\n        $("#js-news").ticker(config_data);' + \
                      u'\n        });\n'
-        self.assertEquals(default_js.strip(' \t\n\r'), view().strip(' \t\n\r'))
+        self.assertEqual(default_js.strip(' \t\n\r'), view().strip(' \t\n\r'))
 
     def test_newsflash_viewlet(self):
         view = getMultiAdapter((self.portal, self.request),

@@ -34,14 +34,14 @@ class PortletTest(unittest.TestCase):
         portlet = getUtility(
             IPortletType,
             name='collective.newsflash.newsportlet.NewsPortlet')
-        self.assertEquals(portlet.addview,
-                          'collective.newsflash.newsportlet.NewsPortlet')
+        self.assertEqual(
+            portlet.addview, 'collective.newsflash.newsportlet.NewsPortlet')
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
         portlet = newsportlet.Assignment()
-        self.failUnless(IPortletAssignment.providedBy(portlet))
-        self.failUnless(IPortletDataProvider.providedBy(portlet.data))
+        self.assertTrue(IPortletAssignment.providedBy(portlet))
+        self.assertTrue(IPortletDataProvider.providedBy(portlet.data))
 
     def test_invoke_add_view(self):
         portlet = getUtility(
@@ -59,8 +59,8 @@ class PortletTest(unittest.TestCase):
         # addview() instead of the next line.
         addview.createAndAdd(data={})
 
-        self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(mapping.values()[0],
+        self.assertEqual(len(mapping), 1)
+        self.assertTrue(isinstance(mapping.values()[0],
                                    newsportlet.Assignment))
 
     def test_invoke_edit_view(self):
@@ -70,7 +70,7 @@ class PortletTest(unittest.TestCase):
 
         mapping['foo'] = newsportlet.Assignment()
         editview = getMultiAdapter((mapping['foo'], request), name='edit')
-        self.failUnless(isinstance(editview, newsportlet.EditForm))
+        self.assertTrue(isinstance(editview, newsportlet.EditForm))
 
     def test_obtain_renderer(self):
         context = self.portal
@@ -84,17 +84,17 @@ class PortletTest(unittest.TestCase):
 
         renderer = getMultiAdapter(
             (context, request, view, manager, assignment), IPortletRenderer)
-        self.failUnless(isinstance(renderer, newsportlet.Renderer))
+        self.assertTrue(isinstance(renderer, newsportlet.Renderer))
 
     def test_remove_portlet(self):
         manager_name = "plone.leftcolumn"
         manager = getUtility(IPortletManager, name=manager_name, context=self.portal)
         mapping = getMultiAdapter((self.portal, manager), IPortletAssignmentMapping)
-        self.failUnless('newsflash' in [id for id, assignment in mapping.items()])
+        self.assertIn('newsflash', [id for id, assignment in mapping.items()])
         portal_setup = self.portal.portal_setup
         portal_setup.runAllImportStepsFromProfile('profile-collective.newsflash:remove-portlet')
         mapping = getMultiAdapter((self.portal, manager), IPortletAssignmentMapping)
-        self.failIf('newsflash' in [id for id, assignment in mapping.items()])
+        self.assertNotIn('newsflash', [id for id, assignment in mapping.items()])
 
 
 class RenderTest(unittest.TestCase):
@@ -128,7 +128,3 @@ class RenderTest(unittest.TestCase):
         r.update()
         #output = r.render()
         # TODO: Test output
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
