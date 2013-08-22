@@ -6,16 +6,20 @@ Because you have to know where your towel is.
 1.1 (unreleased)
 ^^^^^^^^^^^^^^^^
 
+- Plone 4.1 is no longer supported. [hvelarde]
+
 - Tested Plone 4.3 compatibility. [hvelarde]
 
 - Import getSite from zope.component to avoid dependency on
   zope.app.component. [hvelarde]
 
-- moving static resources to cssregistry/jsregistry, removing unused viewlet [quimera]
+- Moving static resources to cssregistry/jsregistry, removing unused viewlet.
+  [quimera]
 
 - Remove portlet in favor of a new UI. [jpgimenez]
 
 - Fixing newsflash edit workflow, new icon and style [quimera]
+
 
 1.0 (2012-09-24)
 ^^^^^^^^^^^^^^^^
