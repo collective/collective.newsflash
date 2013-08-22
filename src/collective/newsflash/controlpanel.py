@@ -4,7 +4,7 @@ from zope import schema
 
 from zope.interface import Interface, provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
-from zope.site.hooks import getSite
+from zope.component.hooks import getSite
 
 from plone.app.registry.browser import controlpanel
 
