@@ -6,8 +6,8 @@ from setuptools import setup, find_packages
 version = '1.1.dev0'
 long_description = (
     open("README.rst").read() + "\n" +
-    open(os.path.join("docs", "CREDITS.rst")).read() + "\n" +
-    open(os.path.join("docs", "CHANGES.rst")).read()
+    open("CONTRIBUTORS.rst").read() + "\n" +
+    open("CHANGES.rst").read()
 )
 
 setup(name='collective.newsflash',
