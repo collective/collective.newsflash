@@ -1,17 +1,14 @@
 There's a frood who really knows where his towel is
 ---------------------------------------------------
 
-Because you have to know where your towel is.
-
 1.1 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-- Plone 4.1 is no longer supported. [hvelarde]
+- Drop support for Plone 4.1. [hvelarde]
 
 - Tested Plone 4.3 compatibility. [hvelarde]
 
-- Import getSite from zope.component to avoid dependency on
-  zope.app.component. [hvelarde]
+- Remove dependency on zope.app.component. [hvelarde]
 
 - Moving static resources to cssregistry/jsregistry, removing unused viewlet.
   [quimera]

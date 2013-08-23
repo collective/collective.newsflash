@@ -10,7 +10,7 @@ of the following people:
 
 Development sponsored by Open Multimedia.
 
-collective.newsflash is an implementation of the `jQuery News Ticker`_ plugin
-for Plone.
+This package is an implementation of the `jQuery News Ticker`_ plugin for
+Plone.
 
 .. _`jQuery News Ticker`: http://www.jquerynewsticker.com/
