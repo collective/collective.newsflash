@@ -13,7 +13,7 @@ ${NEWSFLASH} =  Extra! Extra! Read all about it The Pinball Wizard in a miracle 
 *** Test cases ***
 
 Test News Flash Manager
-    Page Should Contain  You have no newsflash registered
+    Page Should Contain  You have no news flashes registered
 
     # Test Add News Flash
     Click Manage News Flashes
