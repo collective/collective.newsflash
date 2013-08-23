@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: collective.newsflash\n"
 "POT-Creation-Date: 2013-08-23 18:14+0000\n"
 "PO-Revision-Date: 2013-08-23 15:12-0300\n"
-"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
-"Language-Team: Spanish <https://github.com/collective>\n"
+"Last-Translator: Hector Velarde <hector.velarde@gmail.com>\n"
+"Language-Team: Portuguese <https://github.com/collective>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: pt-br\n"
+"Language-Name: Brazilian Portuguese\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
@@ -59,7 +59,7 @@ msgstr "Salvar"
 
 #: collective/newsflash/controlpanel.py:40
 msgid "The speed at which the news flashes appear on the screen. Values go from 0.0 - 1.0."
-msgstr "A velocidade com que as notícias de última hora aparecem na tela. Os valores vão de 0,0 - 1,0."
+msgstr "A velocidade com que as notícias de última hora aparecem na tela. Os valores vão de 0,0 até 1,0."
 
 #: collective/newsflash/controlpanel.py:51
 msgid "The time, in milliseconds (ms), that each news flash item appears on the screen."
