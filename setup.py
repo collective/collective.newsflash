@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import os
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 
 version = '1.1.dev0'
 long_description = (
@@ -44,6 +44,7 @@ setup(name='collective.newsflash',
           'five.grok>=1.2.0',
           'plone.app.layout',
           'plone.app.portlets',
+          'plone.app.registry',
           'plone.app.z3cform',
           'plone.portlets',
           'plone.registry',
@@ -60,6 +61,7 @@ setup(name='collective.newsflash',
           'test': [
               'plone.app.testing',
               'plone.browserlayer',
+              'plone.testing',
               'robotframework-selenium2library',
               'robotsuite',
           ],
