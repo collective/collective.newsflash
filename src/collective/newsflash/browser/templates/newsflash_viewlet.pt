@@ -21,7 +21,7 @@
      tal:condition="python:can_edit and not has_items">
     <ul id="js-news" class="js-hidden">
         <li class="ticker-item">
-            <span i18n:translate="">You have no newsflash registered.</span>
+            <span i18n:translate="">You have no news flashes registered.</span>
     		    <a href="@@manage-newsflashes"
     		       id="add-newsflashes"
     		       class="manage-newsflashes"

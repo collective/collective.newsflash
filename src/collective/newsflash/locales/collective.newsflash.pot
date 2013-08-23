@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.newsflash 1.0\n"
-"POT-Creation-Date: 2012-11-05 16:18+0000\n"
+"POT-Creation-Date: 2013-08-23 18:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.newsflash\n"
 
-#: collective/newsflash/browser/templates/newsflash_viewlet.pt:24
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:25
 msgid "Click here to add one."
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:58
+#: collective/newsflash/controlpanel.py:60
 msgid "Controls"
 msgstr ""
 
@@ -26,11 +26,11 @@ msgstr ""
 msgid "Display speed"
 msgstr ""
 
-#: collective/newsflash/browser/templates/newsflash_viewlet.pt:15
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:16
 msgid "Edit"
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:67
+#: collective/newsflash/controlpanel.py:69
 msgid "Here you can modify the settings for collective.newsflash."
 msgstr ""
 
@@ -47,7 +47,7 @@ msgstr ""
 msgid "News Flash"
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:66
+#: collective/newsflash/controlpanel.py:68
 #: collective/newsflash/profiles/default/controlpanel.xml
 msgid "News Flash Settings"
 msgstr ""
@@ -60,11 +60,11 @@ msgstr ""
 msgid "The speed at which the news flashes appear on the screen. Values go from 0.0 - 1.0."
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:50
+#: collective/newsflash/controlpanel.py:51
 msgid "The time, in milliseconds (ms), that each news flash item appears on the screen."
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:49
+#: collective/newsflash/controlpanel.py:50
 msgid "Time items appear on screen"
 msgstr ""
 
@@ -76,15 +76,15 @@ msgstr ""
 msgid "To remove the title set this to an empty string."
 msgstr ""
 
-#: collective/newsflash/controlpanel.py:59
+#: collective/newsflash/controlpanel.py:61
 msgid "Whether or not to show the ticker controls."
 msgstr ""
 
-#: collective/newsflash/browser/templates/newsflash_viewlet.pt:23
-msgid "You have no newsflash registered."
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:24
+msgid "You have no news flashes registered."
 msgstr ""
 
-#: collective/newsflash/browser/templates/newsflash_viewlet.pt:9
+#: collective/newsflash/browser/templates/newsflash_viewlet.pt:10
 msgid "edit"
 msgstr ""
 
