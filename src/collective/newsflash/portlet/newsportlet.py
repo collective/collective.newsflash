@@ -8,14 +8,14 @@ from plone.app.portlets.portlets import base
 
 # TODO: If you define any fields for the portlet configuration schema below
 # do not forget to uncomment the following import
-#from zope import schema
+# from zope import schema
 from zope.formlib import form
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 # TODO: If you require i18n translation for any of your schema fields below,
 # uncomment the following to import your package MessageFactory
-#from collective.newsflash.newsflash import NewsPortletMessageFactory as _
+# from collective.newsflash.newsflash import NewsPortletMessageFactory as _
 from zope.security import checkPermission
 
 

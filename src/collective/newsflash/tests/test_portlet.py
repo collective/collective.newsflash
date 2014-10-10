@@ -128,5 +128,5 @@ class RenderTest(unittest.TestCase):
                           assignment=newsportlet.Assignment())
         r = r.__of__(self.portal)
         r.update()
-        #output = r.render()
+        # output = r.render()
         # TODO: Test output
