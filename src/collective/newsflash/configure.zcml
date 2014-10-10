@@ -8,6 +8,7 @@
     i18n_domain="collective.newsflash">
 
     <include package="five.grok" />
+    <include package="Products.CMFCore" file="permissions.zcml" />
 
     <five:registerPackage package="." />
     <i18n:registerTranslations directory="locales" />
