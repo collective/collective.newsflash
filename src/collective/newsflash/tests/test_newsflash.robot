@@ -1,18 +1,23 @@
 *** Settings ***
 
-Resource  keywords.txt
-Suite Setup  Start Browser and Log In
-Suite Teardown  Close Browser
+Resource  plone/app/robotframework/keywords.robot
+Resource  plone/app/robotframework/selenium.robot
+Variables  plone/app/testing/interfaces.py
+Library  Remote  ${PLONE_URL}/RobotRemote
+
+Suite Setup  Open Test Browser
+Suite Teardown  Close all browsers
 
 *** Variables ***
 
-${SITE_OWNER_NAME} =  admin
-${SITE_OWNER_PASSWORD} =  secret
 ${NEWSFLASH} =  Extra! Extra! Read all about it The Pinball Wizard in a miracle cure!
 
 *** Test cases ***
 
 Test News Flash Manager
+    Enable Autologin as  Manager
+    Go to  ${PLONE_URL}
+
     Page Should Contain  You have no news flashes registered
 
     # Test Add News Flash
@@ -26,11 +31,6 @@ Test News Flash Manager
     Page Should Not Contain  ${NEWSFLASH}
 
 *** Keywords ***
-
-Start Browser and Log In
-    Open Browser  ${PLONE_URL}
-    Log in  ${SITE_OWNER_NAME}  ${SITE_OWNER_PASSWORD}
-    Goto Homepage
 
 Click Manage News Flashes
     Click Element  css=#edit-newsflashes.link-overlay
