@@ -1,12 +1,13 @@
-There's a frood who really knows where his towel is
----------------------------------------------------
+Changelog
+---------
+
+There's a frood who really knows where his towel is.
 
 1.1 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-- Drop support for Plone 4.1. [hvelarde]
-
-- Tested Plone 4.3 compatibility. [hvelarde]
+- Add support for Plone 4.3 and drop support for Plone 4.1.
+  [hvelarde]
 
 - Remove dependency on zope.app.component. [hvelarde]
 

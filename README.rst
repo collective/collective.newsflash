@@ -19,10 +19,16 @@ Mostly Harmless
 ---------------
 
 .. image:: https://secure.travis-ci.org/collective/collective.newsflash.png?branch=master
+    :alt: Travis CI badge
     :target: http://travis-ci.org/collective/collective.newsflash
 
 .. image:: https://coveralls.io/repos/collective/collective.newsflash/badge.png?branch=master
+    :alt: Coveralls badge
     :target: https://coveralls.io/r/collective/collective.newsflash
+
+.. image:: https://pypip.in/d/collective.newsflash/badge.png
+    :alt: Downloads
+    :target: https://pypi.python.org/pypi/collective.newsflash
 
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
