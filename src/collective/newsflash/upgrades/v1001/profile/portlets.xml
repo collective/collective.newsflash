@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <portlets>
- <assignment
+  <assignment
     remove="True"
     manager="plone.leftcolumn"
     category="context"

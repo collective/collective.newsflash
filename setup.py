@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
-
 from setuptools import find_packages
 from setuptools import setup
 
 version = '1.1.dev0'
 long_description = (
-    open("README.rst").read() + "\n" +
-    open("CONTRIBUTORS.rst").read() + "\n" +
-    open("CHANGES.rst").read()
+    open('README.rst').read() + '\n' +
+    open('CONTRIBUTORS.rst').read() + '\n' +
+    open('CHANGES.rst').read()
 )
 
 setup(name='collective.newsflash',
@@ -15,26 +14,25 @@ setup(name='collective.newsflash',
       description="News ticker inspired by the one on the BBC News website.",
       long_description=long_description,
       classifiers=[
-          "Development Status :: 5 - Production/Stable",
-          "Environment :: Web Environment",
-          "Framework :: Plone",
-          "Framework :: Plone :: 4.2",
-          "Framework :: Plone :: 4.3",
-          "Intended Audience :: System Administrators",
-          "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
-          "Operating System :: OS Independent",
-          "Programming Language :: JavaScript",
-          "Programming Language :: Python",
-          "Programming Language :: Python :: 2.6",
-          "Programming Language :: Python :: 2.7",
-          "Topic :: Office/Business :: News/Diary",
-          "Topic :: Software Development :: Libraries :: Python Modules",
+          'Development Status :: 5 - Production/Stable',
+          'Environment :: Web Environment',
+          'Framework :: Plone',
+          'Framework :: Plone :: 4.2',
+          'Framework :: Plone :: 4.3',
+          'Intended Audience :: System Administrators',
+          'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+          'Operating System :: OS Independent',
+          'Programming Language :: JavaScript',
+          'Programming Language :: Python',
+          'Programming Language :: Python :: 2.6',
+          'Programming Language :: Python :: 2.7',
+          'Topic :: Office/Business :: News/Diary',
+          'Topic :: Software Development :: Libraries :: Python Modules',
       ],
       keywords='plone jquery newsticker',
       author='Franco Pellegrini',
       author_email='frapell@gmail.com',
       url='https://github.com/collective/collective.newsflash',
-      license='GPLv2',
       packages=find_packages('src'),
       package_dir={'': 'src'},
       namespace_packages=['collective'],
@@ -42,6 +40,7 @@ setup(name='collective.newsflash',
       zip_safe=False,
       install_requires=[
           'five.grok>=1.2.0',
+          'plone.api',
           'plone.app.layout',
           'plone.app.portlets',
           'plone.app.registry',

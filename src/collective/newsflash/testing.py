@@ -14,7 +14,6 @@ class Fixture(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         import collective.newsflash
         self.loadZCML(package=collective.newsflash)
-        self.loadZCML(package=collective.newsflash.tests, name='test-remove-portlet.zcml')
 
     def setUpPloneSite(self, portal):
         self.applyProfile(portal, 'collective.newsflash:default')

@@ -6,10 +6,18 @@ There's a frood who really knows where his towel is.
 1.1 (unreleased)
 ^^^^^^^^^^^^^^^^
 
+.. Warning::
+    The upgrade step of this release removes the management portlet from the left column on the root of the site.
+    If you added it to the right column you must remove it manually before upgrade.
+
+- Add upgrade step to remove management portlet and cook resources.
+  [hvelarde]
+
 - Add support for Plone 4.3 and drop support for Plone 4.1.
   [hvelarde]
 
-- Remove dependency on zope.app.component. [hvelarde]
+- Remove dependency on zope.app.component; depend on plone.api.
+  [hvelarde]
 
 - Moving static resources to cssregistry/jsregistry, removing unused viewlet.
   [quimera]
