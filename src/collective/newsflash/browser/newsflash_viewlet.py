@@ -1,19 +1,15 @@
 # -*- coding: utf-8 -*-
-import json
-
+from collective.newsflash.controlpanel import INewsFlashSettings
+from collective.newsflash.interfaces import INewsFlashLayer
 from five import grok
+from plone import api
+from plone.app.layout.viewlets.interfaces import IAboveContent
+from plone.registry.interfaces import IRegistry
+from zope.annotation.interfaces import IAnnotations
 from zope.component import queryUtility
 from zope.interface import Interface
 
-from Products.CMFCore.utils import getToolByName
-
-from plone.app.layout.viewlets.interfaces import IAboveContent
-from plone.registry.interfaces import IRegistry
-
-from collective.newsflash.controlpanel import INewsFlashSettings
-from collective.newsflash.interfaces import INewsFlashLayer
-
-from zope.annotation.interfaces import IAnnotations
+import json
 
 grok.templatedir("templates")
 
@@ -54,7 +50,7 @@ class NewsFlash_API(grok.View):
         return settings
 
     def getItems(self):
-        site = getToolByName(self.context, 'portal_url').getPortalObject()
+        site = api.portal.get_tool('portal_url').getPortalObject()
         annotations = IAnnotations(site)
         return annotations.get('collective.newsflash.newsflash', [])
 
@@ -66,7 +62,7 @@ class NewsFlash_API(grok.View):
             return False
 
     def can_edit(self):
-        portal_membership = getToolByName(self.context, 'portal_membership')
+        portal_membership = api.portal.get_tool('portal_membership')
         return portal_membership.checkPermission('Modify portal content', self.context)
 
     def enabled(self):

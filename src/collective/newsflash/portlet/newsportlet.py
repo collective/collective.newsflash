@@ -1,21 +1,10 @@
 # -*- coding: utf-8 -*-
-
-from zope.interface import implements
-from Products.CMFCore.utils import getToolByName
-
-from plone.portlets.interfaces import IPortletDataProvider
+from plone import api
 from plone.app.portlets.portlets import base
-
-# TODO: If you define any fields for the portlet configuration schema below
-# do not forget to uncomment the following import
-# from zope import schema
-from zope.formlib import form
-
+from plone.portlets.interfaces import IPortletDataProvider
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
-# TODO: If you require i18n translation for any of your schema fields below,
-# uncomment the following to import your package MessageFactory
-# from collective.newsflash.newsflash import NewsPortletMessageFactory as _
+from zope.formlib import form
+from zope.interface import implements
 from zope.security import checkPermission
 
 
@@ -27,15 +16,6 @@ class INewsPortlet(IPortletDataProvider):
     same.
     """
 
-    # TODO: Add any zope.schema fields here to capture portlet configuration
-    # information. Alternatively, if there are no settings, leave this as an
-    # empty interface - see also notes around the add form and edit form
-    # below.
-
-    # some_field = schema.TextLine(title=_(u"Some field"),
-    #                              description=_(u"A field to use"),
-    #                              required=True)
-
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -45,14 +25,6 @@ class Assignment(base.Assignment):
     """
 
     implements(INewsPortlet)
-
-    # TODO: Set default values for the configurable parameters here
-
-    # some_field = u""
-
-    # TODO: Add keyword parameters for configurable parameters here
-    # def __init__(self, some_field=u""):
-    #    self.some_field = some_field
 
     def __init__(self):
         pass
@@ -77,7 +49,7 @@ class Renderer(base.Renderer):
         # I have to do this because the 'view_permission' set in the
         # configure.zcml is completely useless. see around line 60 from:
         # plone/app/portlets/metaconfigure.py
-        portal = getToolByName(self.context, 'portal_url').getPortalObject()
+        portal = api.portal.get_tool('portal_url').getPortalObject()
         return checkPermission('collective.newsflash.AddNewsFlash', portal)
 
     render = ViewPageTemplateFile('newsportlet.pt')
@@ -94,21 +66,6 @@ class AddForm(base.AddForm):
 
     def create(self, data):
         return Assignment(**data)
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can use the next AddForm implementation instead of the previous.
-
-# class AddForm(base.NullAddForm):
-#     """Portlet add form.
-#     """
-#     def create(self):
-#         return Assignment()
-
-
-# NOTE: If this portlet does not have any configurable parameters, you
-# can remove the EditForm class definition and delete the editview
-# attribute from the <plone:portlet /> registration in configure.zcml
 
 
 class EditForm(base.EditForm):

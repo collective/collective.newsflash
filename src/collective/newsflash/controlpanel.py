@@ -1,30 +1,27 @@
 # -*- coding: utf-8 -*-
-
-from zope import schema
-
-from zope.interface import Interface, provider
-from zope.schema.interfaces import IContextAwareDefaultFactory
-from zope.component.hooks import getSite
-
-from plone.app.registry.browser import controlpanel
-
-from collective.newsflash import config
 from collective.newsflash import _
+from collective.newsflash import config
+from plone import api
+from plone.app.registry.browser import controlpanel
+from zope import schema
+from zope.interface import Interface
+from zope.interface import provider
+from zope.schema.interfaces import IContextAwareDefaultFactory
 
 
 @provider(IContextAwareDefaultFactory)
 def default_title_text(context):
-    site = getSite()
+    portal = api.portal.get()
     # HACK: to avoid "AttributeError: translate" on tests
-    if hasattr(site, 'translate'):  # runtime
-        return site.translate(config.TITLE_TEXT)
+    if hasattr(portal, 'translate'):  # runtime
+        return portal.translate(config.TITLE_TEXT)
     else:  # tests
         return config.TITLE_TEXT
 
 
 class INewsFlashSettings(Interface):
-    """Interface for the form on the control panel.
-    """
+
+    """Interface for the form on the control panel."""
 
     titleText = schema.TextLine(
         title=_(u"Title text"),

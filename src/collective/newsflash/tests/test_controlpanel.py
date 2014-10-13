@@ -1,22 +1,17 @@
 # -*- coding: utf-8 -*-
-
-import unittest
-
-from zope.component import getMultiAdapter
-from zope.component import getUtility
-
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import logout
-from plone.app.testing import setRoles
-
-from plone.registry import Registry
-from plone.registry.interfaces import IRegistry
-
-from Products.CMFCore.utils import getToolByName
-
 from collective.newsflash import config
 from collective.newsflash.controlpanel import INewsFlashSettings
 from collective.newsflash.testing import INTEGRATION_TESTING
+from plone import api
+from plone.app.testing import logout
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.registry import Registry
+from plone.registry.interfaces import IRegistry
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+
+import unittest
 
 BASE_REGISTRY = 'collective.newsflash.controlpanel.INewsFlashSettings.%s'
 
@@ -45,7 +40,7 @@ class ControlPanelTestCase(unittest.TestCase):
                           '@@newsflash-settings')
 
     def test_action_in_controlpanel(self):
-        cp = getToolByName(self.portal, 'portal_controlpanel')
+        cp = api.portal.get_tool('portal_controlpanel')
         actions = [a.getAction(self)['id'] for a in cp.listActions()]
         self.assertIn('newsflash', actions)
 
